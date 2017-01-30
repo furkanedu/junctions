@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Screen Pattern - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="The Screen Pattern" />
+    <meta name="twitter:title" content="The Screen Pattern" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="-715969444"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link RootWrapper-link-active" data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/guide/basics/the-screen-pattern" data-reactid="16">The Screen Pattern</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/guide" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">Tutorial</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">Introduction</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/guide/introduction/do-i-need-a-router" class="MenuWrapper-link  " data-reactid="24">Do I Need A Router?</a></li><li data-reactid="25"><a href="/guide/introduction/motivation" class="MenuWrapper-link  " data-reactid="26">Motivation</a></li><li data-reactid="27"><a href="/guide/introduction/three-principles" class="MenuWrapper-link  " data-reactid="28">The Haiku Of Routing Principles</a></li><li data-reactid="29"><a href="/guide/introduction/what-you-get-from-junctions" class="MenuWrapper-link  " data-reactid="30">What You Get From Junctions</a></li></ul></li><li class="MenuWrapper-section" data-reactid="31"><div data-reactid="32">Basics</div><ul class="MenuWrapper-submenu" data-reactid="33"><li data-reactid="34"><a href="/guide/basics/locations" class="MenuWrapper-link  " data-reactid="35">Locations</a></li><li data-reactid="36"><a href="/guide/basics/routes" class="MenuWrapper-link  " data-reactid="37">Routes</a></li><li data-reactid="38"><a href="/guide/basics/junctions" class="MenuWrapper-link  " data-reactid="39">Junctions</a></li><li data-reactid="40"><a href="/guide/basics/converting-locations-to-routes" class="MenuWrapper-link  " data-reactid="41">Converting Locations to Routes</a></li><li data-reactid="42"><a href="/guide/basics/the-screen-pattern" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="43">The Screen Pattern</a></li><li data-reactid="44"><a href="/guide/basics/links" class="MenuWrapper-link  " data-reactid="45">Links</a></li><li data-reactid="46"><a href="/guide/basics/example-contact-list" class="MenuWrapper-link  " data-reactid="47">Example: Contact List</a></li></ul></li><li class="MenuWrapper-section" data-reactid="48"><div data-reactid="49">Advanced</div><ul class="MenuWrapper-submenu" data-reactid="50"><li data-reactid="51"><a href="/guide/advanced/contextual-links" class="MenuWrapper-link  " data-reactid="52">Pass history via context</a></li><li data-reactid="53"><a href="/guide/advanced/canonical-locations" class="MenuWrapper-link  " data-reactid="54">Canonical Location</a></li></ul></li><li class="MenuWrapper-heading" data-reactid="55"><a href="/guide/Glossary" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="56">Glossary</a></li></ul><div class="MenuWrapper-arrows" data-reactid="57"><a class="MenuWrapper-arrows-prev" href="/guide/basics/converting-locations-to-routes" data-reactid="58">Converting Locations to Routes</a><a class="MenuWrapper-arrows-next" href="/guide/basics/links" data-reactid="59">Links</a></div></div><div class="MenuWrapper-body" data-reactid="60"><h1 class="MenuWrapper-title" data-reactid="61">The Screen Pattern</h1><div class="MarkdownView" data-reactid="62"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="63"></div><markdown data-reactid="64"><p><strong>Note: The Guide is still only an outline. <a href="#">Pull Requests</a> would be greatly appreciated!</strong></p>
+<p><em>Junctions</em> is a single tool for converting between Routes and Locations – and that’s it. But while this gives you a huge amount of flexibility, it can also leave you scratching your head as to the best way to use it.</p>
+<p><strong>Screen Components</strong> are a solution to this. They’re a pattern for components which specify junctions and consume matching routes. And while they still give you flexibility to use <em>Junctions</em> whichever way you see fit, they take the guesswork out of getting started.</p>
+<p>So what do Screen components look like?</p>
+<ul>
+<li>They have a static <code>junction</code> property</li>
+<li>They accept a <code>route</code> prop</li>
+<li>Their route’s <code>child</code>, if it exists, is passed to a child screen</li>
+</ul>
+<p>For example:</p>
+<p><strong>TODO: example</strong></p>
+<p>Let’s go over this example one step at a time</p>
+<h2 id="the-static-property"><a class="header-anchor" href="#the-static-property" aria-hidden="true">#</a> The static <code>junction</code> property</h2>
+<ul>
+<li>Like React’s <code>propTypes</code>, this specifies the types which can be passed in</li>
+<li>But unlike <code>propTypes</code>, it is actually used at runtime in production:
+<ul>
+<li>If this is the root screen, the converter will use it directly</li>
+<li>If this is a nested screen, the parent screen’s Junction needs to access it
+<strong>TODO: example</strong></li>
+</ul>
+</li>
+<li>Because we know that any screen component has a <code>junction</code> property, composing screens becomes simply a matter of passing that junction to our junction branch’s <code>child</code> property</li>
+</ul>
+<h2 id="the-prop"><a class="header-anchor" href="#the-prop" aria-hidden="true">#</a> The <code>route</code> prop</h2>
+<ul>
+<li>A screen’s <em>current</em> Route object is always passed in via the component’s <code>route</code> prop</li>
+<li>This route will match one of the junction branches specified on the screen’s junction, as we trust that anybody using a screen knows where to find our Junction</li>
+</ul>
+<h2 id="handling-routes-property"><a class="header-anchor" href="#handling-routes-property" aria-hidden="true">#</a> Handling route’s <code>child</code> property</h2>
+<ul>
+<li>If a Screen component’s Junction specifies child Screens, then a Screen needs to handle the routes for child screens too.</li>
+<li>To do so, the screen should pass its <code>route.child</code> through to the child Screen’s <code>route</code> prop</li>
+<li><code>route.child</code> will differ based on which branch is currently active, so regardless of which child component you’re rendering for the current route, <em>its</em> children will still be <code>route.child</code></li>
+</ul>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="65"><a class="MenuWrapper-arrows-prev" href="/guide/basics/converting-locations-to-routes" data-reactid="66">Converting Locations to Routes</a><a class="MenuWrapper-arrows-next" href="/guide/basics/links" data-reactid="67">Links</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="68"><!-- react-text: 69 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="70">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/9.docs-basics-the-screen-pattern-247ac01f7f3982bcbdfa.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

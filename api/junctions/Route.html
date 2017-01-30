@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Route - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="Route" />
+    <meta name="twitter:title" content="Route" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="1668035903"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link " data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link RootWrapper-link-active" data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/api/junctions/Route" data-reactid="16">Route</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/api" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">About The API</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">junctions</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/api/junctions/Converter" class="MenuWrapper-link  " data-reactid="24">Converter</a></li><li data-reactid="25"><a href="/api/junctions/Junction" class="MenuWrapper-link  " data-reactid="26">Junction</a></li><li data-reactid="27"><a href="/api/junctions/Location" class="MenuWrapper-link  " data-reactid="28">Location</a></li><li data-reactid="29"><a href="/api/junctions/Route" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="30">Route</a></li><li data-reactid="31"><a href="/api/junctions/createConverter" class="MenuWrapper-link  " data-reactid="32">createConverter</a></li><li data-reactid="33"><a href="/api/junctions/createJunction" class="MenuWrapper-link  " data-reactid="34">createJunction</a></li><li data-reactid="35"><a href="/api/junctions/locationsEqual" class="MenuWrapper-link  " data-reactid="36">locationsEqual</a></li><li data-reactid="37"><a href="/api/junctions/routesMatch" class="MenuWrapper-link  " data-reactid="38">routesMatch</a></li></ul></li><li class="MenuWrapper-section" data-reactid="39"><div data-reactid="40">react-junctions</div><ul class="MenuWrapper-submenu" data-reactid="41"><li data-reactid="42"><a href="/api/react-junctions/HistoryContext" class="MenuWrapper-link  " data-reactid="43">&lt;HistoryContext&gt;</a></li><li data-reactid="44"><a href="/api/react-junctions/Link" class="MenuWrapper-link  " data-reactid="45">&lt;Link&gt;</a></li><li data-reactid="46"><a href="/api/react-junctions/Router" class="MenuWrapper-link  " data-reactid="47">&lt;Router&gt;</a></li></ul></li></ul><div class="MenuWrapper-arrows" data-reactid="48"><a class="MenuWrapper-arrows-prev" href="/api/junctions/Location" data-reactid="49">Location</a><a class="MenuWrapper-arrows-next" href="/api/junctions/createConverter" data-reactid="50">createConverter</a></div></div><div class="MenuWrapper-body" data-reactid="51"><h1 class="MenuWrapper-title" data-reactid="52">Route</h1><div class="MarkdownView" data-reactid="53"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="54"></div><markdown data-reactid="55"><p>Routes are objects which represent a single state of a <a href="/api/junctions/Junction">Junction</a>. To learn more about what Routes are and how they’re used, read <a href="/guide/introduction/what-you-get-from-junctions">What You Get From Junctions</a> and <a href="/guide/basics/routes">Routes</a> in the Junctions Guide.</p>
+<p>Route objects are most commonly used as props of your components. By checking a <a href="/guide/basics/the-screen-pattern">Screen Component</a>’s <code>route</code> prop, you can decide what content that screen should render.</p>
+<p>Routes are also used as a way of referring to arbitrary locations within your application. They can be used in combination with a <code>Converter</code> or <code>LocatedRoute</code> object’s <a href="#locateroutes">locate()</a> method to produce <a href="/api/junctions/Location">Location</a> objects used for navigating.</p>
+<h2 id="route-vs-locatedroute"><a class="header-anchor" href="#route-vs-locatedroute" aria-hidden="true">#</a> Route vs. LocatedRoute</h2>
+<p>There are two types of <code>Route</code> objects.</p>
+<ul>
+<li>Standard routes are created by calling a <code>Junction</code> object’s <a href="/api/junctions/Junction#createroutekey-params-next">createRoute()</a> method.</li>
+<li><code>LocatedRoute</code> objects are returned by calling a <code>Converter</code> object’s <a href="/api/junctions/Converter#routelocation">route()</a> method.</li>
+</ul>
+<p>The difference is that <code>LocatedRoute</code> objects have a <a href="#locateroutes">locate()</a> method, which acts like the <a href="/api/junctions/Converter#locateroutes">similarly named</a> method on <code>Converter</code> but produces a <a href="/api/junctions/Location">Location</a> which is <em>relative</em> to that <code>LocatedRoute</code>.</p>
+<h2 id="properties"><a class="header-anchor" href="#properties" aria-hidden="true">#</a> Properties</h2>
+<ul>
+<li>
+<p><code>key</code> (<em>string</em>)</p>
+<p>They key of the <a href="/api/junctions/Junction">Branch</a> whose format this route follows</p>
+</li>
+<li>
+<p><code>params</code> (<em>object</em>)</p>
+<p>The values of any params which this route holds</p>
+</li>
+<li>
+<p><code>data</code> (<em>object</em>)</p>
+<p>The value of the <code>data</code> property defined on the associated branch in <a href="/api/junctions/createJunction">createJunction</a>, if any</p>
+</li>
+<li>
+<p><code>next</code> (<em><a href="/api/junctions/Route">Route</a> | { [key]: <a href="/api/junctions/Route">Route</a> }</em>)</p>
+<p>The <code>Route</code> object or objects which specify the state of any <code>next</code> junctions on the associated branch</p>
+</li>
+</ul>
+<h4 id="example"><a class="header-anchor" href="#example" aria-hidden="true">#</a> Example</h4>
+<p><code>Route</code> objects are instances of an internal <code>Route</code> or <code>LocatedRoute</code> class, so they may not be represented by plain old JavaScript objects. With this in mind, here is an example of the <em>shape</em> which a <code>Route</code> object may take.</p>
+<pre><code class="language-js"><span class="token punctuation" >{</span>
+  key<span class="token punctuation" >:</span> <span class="token string" >'Invoices'</span><span class="token punctuation" >,</span>
+  data<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+    Component<span class="token punctuation" >:</span> InvoicesScreen<span class="token punctuation" >,</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+  params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+    id<span class="token punctuation" >:</span> <span class="token string" >'15'</span><span class="token punctuation" >,</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+  next<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+    main<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+      key<span class="token punctuation" >:</span> <span class="token string" >'Payments'</span><span class="token punctuation" >,</span>
+      data<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        Component<span class="token punctuation" >:</span> InvoicePaymentsScreen<span class="token punctuation" >,</span>
+      <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+      params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        order<span class="token punctuation" >:</span> <span class="token string" >'date'</span><span class="token punctuation" >,</span>
+        where<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> paid<span class="token punctuation" >:</span> <span class="token boolean" >false</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+      <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+
+    modal<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+      key<span class="token punctuation" >:</span> <span class="token string" >'AddPayment'</span><span class="token punctuation" >,</span>
+      data<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        Component<span class="token punctuation" >:</span> AddPaymentScreen<span class="token punctuation" >,</span>
+      <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<h2 id="methods"><a class="header-anchor" href="#methods" aria-hidden="true">#</a> Methods</h2>
+<h3 id="locateroutes"><a class="header-anchor" href="#locateroutes" aria-hidden="true">#</a> locate(…routes)</h3>
+<p><em>This method is only available on <code>LocatedRoute</code> objects – i.e. those created by <code>converter.route()</code>. It is not available on routes created by <code>junction.createRoute()</code>.</em></p>
+<p>Create a new <a href="/api/junctions/Location">Location</a> from the Location of this <a href="/api/junctions/Route">Route</a>, but with <code>next</code> routes replaced by the arguments (or removed entirely in the case of no arguments).</p>
+<h4 id="arguments"><a class="header-anchor" href="#arguments" aria-hidden="true">#</a> Arguments</h4>
+<ul>
+<li>
+<p><code>...routes</code> (<em><a href="/api/junctions/Route">Route</a></em>)</p>
+<p>Up to one <code>Route</code> for each <code>Junction</code> specified on the associated branch’s <code>next</code> Junction</p>
+</li>
+</ul>
+<h4 id="returns"><a class="header-anchor" href="#returns" aria-hidden="true">#</a> Returns</h4>
+<p>(<em><a href="/api/junctions/Location">Location</a></em>) A <code>Location</code> which includes this Route’s <code>Location</code>, and extends it to also correspond to the passed in <code>Route</code> objects</p>
+<h4 id="example-2"><a class="header-anchor" href="#example-2" aria-hidden="true">#</a> Example</h4>
+<p>The <code>locate</code> method of a <code>LocatedRoute</code> is often passed to child components along with the route’s <code>next</code> route. This allows child components to create <code>Location</code> objects linking within the component – without knowing where in the application the component is mounted. For more details, read <a href="/guide/basics/the-screen-pattern">The Screen Pattern</a> in the Junctions Guide.</p>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="56"><a class="MenuWrapper-arrows-prev" href="/api/junctions/Location" data-reactid="57">Location</a><a class="MenuWrapper-arrows-next" href="/api/junctions/createConverter" data-reactid="58">createConverter</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="59"><!-- react-text: 60 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="61">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/23.docs-api-junctions-Route-f26d8262ba40a263a88f.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

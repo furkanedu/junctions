@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Converting Locations to Routes - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="Converting Locations to Routes" />
+    <meta name="twitter:title" content="Converting Locations to Routes" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="1078171305"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link RootWrapper-link-active" data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/guide/basics/converting-locations-to-routes" data-reactid="16">Converting Locations to Routes</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/guide" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">Tutorial</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">Introduction</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/guide/introduction/do-i-need-a-router" class="MenuWrapper-link  " data-reactid="24">Do I Need A Router?</a></li><li data-reactid="25"><a href="/guide/introduction/motivation" class="MenuWrapper-link  " data-reactid="26">Motivation</a></li><li data-reactid="27"><a href="/guide/introduction/three-principles" class="MenuWrapper-link  " data-reactid="28">The Haiku Of Routing Principles</a></li><li data-reactid="29"><a href="/guide/introduction/what-you-get-from-junctions" class="MenuWrapper-link  " data-reactid="30">What You Get From Junctions</a></li></ul></li><li class="MenuWrapper-section" data-reactid="31"><div data-reactid="32">Basics</div><ul class="MenuWrapper-submenu" data-reactid="33"><li data-reactid="34"><a href="/guide/basics/locations" class="MenuWrapper-link  " data-reactid="35">Locations</a></li><li data-reactid="36"><a href="/guide/basics/routes" class="MenuWrapper-link  " data-reactid="37">Routes</a></li><li data-reactid="38"><a href="/guide/basics/junctions" class="MenuWrapper-link  " data-reactid="39">Junctions</a></li><li data-reactid="40"><a href="/guide/basics/converting-locations-to-routes" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="41">Converting Locations to Routes</a></li><li data-reactid="42"><a href="/guide/basics/the-screen-pattern" class="MenuWrapper-link  " data-reactid="43">The Screen Pattern</a></li><li data-reactid="44"><a href="/guide/basics/links" class="MenuWrapper-link  " data-reactid="45">Links</a></li><li data-reactid="46"><a href="/guide/basics/example-contact-list" class="MenuWrapper-link  " data-reactid="47">Example: Contact List</a></li></ul></li><li class="MenuWrapper-section" data-reactid="48"><div data-reactid="49">Advanced</div><ul class="MenuWrapper-submenu" data-reactid="50"><li data-reactid="51"><a href="/guide/advanced/contextual-links" class="MenuWrapper-link  " data-reactid="52">Pass history via context</a></li><li data-reactid="53"><a href="/guide/advanced/canonical-locations" class="MenuWrapper-link  " data-reactid="54">Canonical Location</a></li></ul></li><li class="MenuWrapper-heading" data-reactid="55"><a href="/guide/Glossary" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="56">Glossary</a></li></ul><div class="MenuWrapper-arrows" data-reactid="57"><a class="MenuWrapper-arrows-prev" href="/guide/basics/junctions" data-reactid="58">Junctions</a><a class="MenuWrapper-arrows-next" href="/guide/basics/the-screen-pattern" data-reactid="59">The Screen Pattern</a></div></div><div class="MenuWrapper-body" data-reactid="60"><h1 class="MenuWrapper-title" data-reactid="61">Converting Locations to Routes</h1><div class="MarkdownView" data-reactid="62"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="63"></div><markdown data-reactid="64"><p><strong>Note: The Guide is still only an outline. <a href="#">Pull Requests</a> would be greatly appreciated!</strong></p>
+<ul>
+<li>
+<p>Junctions is – at its core – a package for converting between ‘Location’ and ‘Route’ objects. So how do you actually accomplish this?</p>
+</li>
+<li>
+<p>Once the pieces are in place, the process is actually incredibly simple. Assuming you have a root <code>Junction</code>, all you need to do is create a <code>Converter</code> object and do a conversion:</p>
+</li>
+</ul>
+<pre><code class="language-js"><span class="token keyword" >const</span> converter <span class="token operator" >=</span> <span class="token function" >createConverter</span><span class="token punctuation" >(</span>rootJunction<span class="token punctuation" >)</span>
+<span class="token keyword" >const</span> rootRoute <span class="token operator" >=</span> converter<span class="token punctuation" >.</span><span class="token function" >route</span><span class="token punctuation" >(</span>location<span class="token punctuation" >)</span>
+</code></pre>
+<ul>
+<li>In fact, we <em>could</em> make this even simpler by creating a <code>getRoute</code> function which accepts both the location and Junction.</li>
+<li>The only reason we split them into two is performance</li>
+<li>Any conversion needs to do some up-front work on the supplied Junction object. Creating a persistent <code>Converter</code> object lets Junctions save the result of this work for later, improving performance.</li>
+<li>But what about a real application?</li>
+<li>Usage in an actual application is – surprisingly – almost identical. But there are a few differences you may encounter</li>
+</ul>
+<h2 id="base-locations"><a class="header-anchor" href="#base-locations" aria-hidden="true">#</a> Base Locations</h2>
+<ul>
+<li>If your application doesn’t know where it is mounted, it might not work</li>
+<li>Junctions assumes that the entire Location, right from the start, needs to be converted into routes.
+<strong>TODO: example</strong></li>
+<li>So if your Location has some irrelevant information, it needs to be stripped.</li>
+<li>You can tell the Converter to do so by supplying a base Location
+<strong>TODO: example</strong></li>
+</ul>
+<h2 id="canonical-locations"><a class="header-anchor" href="#canonical-locations" aria-hidden="true">#</a> Canonical Locations</h2>
+<ul>
+<li>If any of your applications junctions specify default parameters, then the converter will add these where necessary.</li>
+<li>This means that the Route which the converter returns may differ from the Location which you passed to it
+<strong>TODO: example</strong></li>
+<li>This may not be a problem for you. But if it is, you can also use the converter to generate a <em>new</em>, <em>canonical</em> location for your route
+<strong>TODO: example</strong></li>
+<li>If your original location didn’t specify some parameters with defaults, your new one will. By navigating to it, you can ensure that the user only ever sees one URL for a given route.</li>
+</ul>
+<h2 id="example-use-with-history"><a class="header-anchor" href="#example-use-with-history" aria-hidden="true">#</a> Example: Use with History</h2>
+<ul>
+<li>Here’s an example which uses the history package, along with everything we’ve learned so far, to output the current root route to the screen and navigate to the canonical location</li>
+</ul>
+<p><strong>TODO: example</strong></p>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="65"><a class="MenuWrapper-arrows-prev" href="/guide/basics/junctions" data-reactid="66">Junctions</a><a class="MenuWrapper-arrows-next" href="/guide/basics/the-screen-pattern" data-reactid="67">The Screen Pattern</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="68"><!-- react-text: 69 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="70">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/15.docs-basics-converting-locations-to-routes-0328ab0c63233d26165c.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

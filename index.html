@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Composable routing for React" />
+    <meta property="og:description" content="Composable routing for React" />
+    <meta name="twitter:description" content="Composable routing for React" />
+  
+  
+    <meta property="og:title" content="junctions.js" />
+    <meta name="twitter:title" content="junctions.js" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="777301982"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link " data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><h1 data-reactid="14">Composable Routing For React</h1><div class="MarkdownView" data-reactid="15"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="16"></div><markdown data-reactid="17"><p>Junctions.js is a router built from the ground up for component-based applications.</p>
+<p>It equips you to create reusable React components that have routes and links, and integrate seamlessly with the browser <a href="https://developer.mozilla.org/en/docs/Web/API/History">History API</a>.</p>
+<h2 id="why-use-junctionsjs"><a class="header-anchor" href="#why-use-junctionsjs" aria-hidden="true">#</a> Why use junctions.js?</h2>
+<p>Because it has <em>principles</em>.</p>
+<ul>
+<li><strong>Composability.</strong> Reuse components anywhere. Even those with links and routes!</li>
+<li><strong>No Surprises.</strong> The Back and Forward buttons work just as the user expects.</li>
+<li><strong>Flexibility.</strong> Junctions doesn’t make decisions for you. It let’s React be React.</li>
+</ul>
+<p>These three principles are described in more (and less) detail in <a href="/guide/introduction/three-principles">The Haiku Of Routing Principles</a>.</p>
+<h2 id="getting-started"><a class="header-anchor" href="#getting-started" aria-hidden="true">#</a> Getting Started</h2>
+<p>The pitch for a super awesome routing library is a funny place to get asked “Do you actually need a router?” – but it would be irresponsible to tell you how great junctions.js is without telling you that <em>not using any router is often even better</em>. So ask yourself – <a href="/guide/introduction/do-i-need-a-router">do you really <em>need</em> a router?</a></p>
+<p>Once you’ve decided that junctions.js does fit your needs, the best way to get started is to try it. and the <a href="/guide">Tutorial</a> makes this easy – after following along, you’ll have built a real app and have the experience to apply junctions.js to your own projects.</p>
+<h2 id="demos"><a class="header-anchor" href="#demos" aria-hidden="true">#</a> Demos</h2>
+<p>This website hosts a number of live demos with source. Take a look at the <a href="/examples/Raw">Raw</a> example to see how Junctions works without any React-specific helper components, or see <a href="/examples/Basic">Basic</a> for a typical example.</p>
+<p>Also, the <a href="https://junctions.js.org">junctions.js website</a> eats its own dog food. When viewing the website, you can open your developer console to take a look!</p>
+<h2 id="installation"><a class="header-anchor" href="#installation" aria-hidden="true">#</a> Installation</h2>
+<p>At minimum, you’ll need the junctions package</p>
+<pre><code class="language-bash">npm <span class="token function" >install</span> junctions --save
+</code></pre>
+<p>If you want <a href="/api/react-junctions/Link">&lt;Link&gt;</a> and <a href="/api/react-junctions/Router">&lt;Router&gt;</a> components to help integrating with React, install <code>react-junctions</code></p>
+<pre><code class="language-bash">npm <span class="token function" >install</span> react-junctions --save
+</code></pre>
+<p>Alternatively, use plain-ol’ script tags with unpkg.</p>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>script</span> <span class="token attr-name" >src</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>https://unpkg.com/junctions@0.3.0/dist/junctions.js<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>script</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>script</span> <span class="token attr-name" >src</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>https://unpkg.com/react-junctions@0.3.2/dist/index.js<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>script</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="contributing"><a class="header-anchor" href="#contributing" aria-hidden="true">#</a> Contributing</h2>
+<p>Contributions are welcome, especially for the documentation.</p>
+<p>To get the documentation running locally, you’ll need to make sure you have a link to the junctions package itself in your <code>node_modules</code> directory:</p>
+<pre><code class="language-bash">npm <span class="token function" >install</span>
+npm <span class="token function" >link</span>
+npm <span class="token function" >link</span> junctions
+npm run docs:start
+</code></pre>
+<p>Then open your browser to <a href="http://localhost:4000">http://localhost:4000</a>!</p>
+</markdown></div></div></div><div class="RootWrapper-footer" data-reactid="18"><!-- react-text: 19 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="20">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/31.README-7496cd9e61f8b7bd3c42.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

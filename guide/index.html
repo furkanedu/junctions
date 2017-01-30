@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="A step-by-step tutorial that will teach you how to create a small app using Junctions and create-react-app." />
+    <meta property="og:description" content="A step-by-step tutorial that will teach you how to create a small app using Junctions and create-react-app." />
+    <meta name="twitter:description" content="A step-by-step tutorial that will teach you how to create a small app using Junctions and create-react-app." />
+  
+  
+    <meta property="og:title" content="Learn junctions.js with create-react-app" />
+    <meta name="twitter:title" content="Learn junctions.js with create-react-app" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="-1181872176"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link RootWrapper-link-active" data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/guide" data-reactid="16">Tutorial</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/guide" class="MenuWrapper-link MenuWrapper-link-active MenuWrapper-link-primary" data-reactid="19">Tutorial</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">Introduction</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/guide/introduction/do-i-need-a-router" class="MenuWrapper-link  " data-reactid="24">Do I Need A Router?</a></li><li data-reactid="25"><a href="/guide/introduction/motivation" class="MenuWrapper-link  " data-reactid="26">Motivation</a></li><li data-reactid="27"><a href="/guide/introduction/three-principles" class="MenuWrapper-link  " data-reactid="28">The Haiku Of Routing Principles</a></li><li data-reactid="29"><a href="/guide/introduction/what-you-get-from-junctions" class="MenuWrapper-link  " data-reactid="30">What You Get From Junctions</a></li></ul></li><li class="MenuWrapper-section" data-reactid="31"><div data-reactid="32">Basics</div><ul class="MenuWrapper-submenu" data-reactid="33"><li data-reactid="34"><a href="/guide/basics/locations" class="MenuWrapper-link  " data-reactid="35">Locations</a></li><li data-reactid="36"><a href="/guide/basics/routes" class="MenuWrapper-link  " data-reactid="37">Routes</a></li><li data-reactid="38"><a href="/guide/basics/junctions" class="MenuWrapper-link  " data-reactid="39">Junctions</a></li><li data-reactid="40"><a href="/guide/basics/converting-locations-to-routes" class="MenuWrapper-link  " data-reactid="41">Converting Locations to Routes</a></li><li data-reactid="42"><a href="/guide/basics/the-screen-pattern" class="MenuWrapper-link  " data-reactid="43">The Screen Pattern</a></li><li data-reactid="44"><a href="/guide/basics/links" class="MenuWrapper-link  " data-reactid="45">Links</a></li><li data-reactid="46"><a href="/guide/basics/example-contact-list" class="MenuWrapper-link  " data-reactid="47">Example: Contact List</a></li></ul></li><li class="MenuWrapper-section" data-reactid="48"><div data-reactid="49">Advanced</div><ul class="MenuWrapper-submenu" data-reactid="50"><li data-reactid="51"><a href="/guide/advanced/contextual-links" class="MenuWrapper-link  " data-reactid="52">Pass history via context</a></li><li data-reactid="53"><a href="/guide/advanced/canonical-locations" class="MenuWrapper-link  " data-reactid="54">Canonical Location</a></li></ul></li><li class="MenuWrapper-heading" data-reactid="55"><a href="/guide/Glossary" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="56">Glossary</a></li></ul><div class="MenuWrapper-arrows" data-reactid="57"><a class="MenuWrapper-arrows-next" href="/guide/introduction/do-i-need-a-router" data-reactid="58">Do I Need A Router?</a></div></div><div class="MenuWrapper-body" data-reactid="59"><h1 class="MenuWrapper-title" data-reactid="60">Tutorial</h1><div class="MarkdownView" data-reactid="61"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="62"></div><markdown data-reactid="63"><p>This guide will walk you through putting together a small React app from scratch using Junctions and <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a>.</p>
+<p>It is assumed you’re already reasonably familiar with React. If you’re not, start by reading <a href="http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/">Learn Raw React</a>.</p>
+<p>The result of this guide is <a href="https://github.com/jamesknelson/junctions-react-app">available on GitHub</a>.</p>
+<h2 id="creating-your-project"><a class="header-anchor" href="#creating-your-project" aria-hidden="true">#</a> Creating your project</h2>
+<p>Before getting started, you’ll need to install <code>create-react-app</code> if you haven’t already:</p>
+<pre><code class="language-bash">npm <span class="token function" >install</span> -g create-react-app
+</code></pre>
+<p>Once <code>create-react-app</code> is installed, create a new app and install <code>junctions</code>, <code>react-junctions</code> and <code>history</code>:</p>
+<pre><code class="language-bash">create-react-app junctions-demo
+<span class="token function" >cd</span> junctions-demo
+npm <span class="token function" >install</span> junctions react-junctions --save-dev
+npm start
+</code></pre>
+<p>Then open <a href="http://localhost:3000/">http://localhost:3000/</a>. You should see a spinning React logo, which means you’re ready to get started!</p>
+<h2 id="adding-a-menu"><a class="header-anchor" href="#adding-a-menu" aria-hidden="true">#</a> Adding a menu</h2>
+<p>All good demo apps have menus, so let’s start by adding a simple one using <code>&lt;a&gt;</code> tags.</p>
+<p>A project generated with <code>create-react-app</code> only has one component – the <code>App</code> component in <code>App.js</code>. So let’s add our menu there by replacing its <code>render()</code> method:</p>
+<pre><code class="language-js">  <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>/dashboard<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Dashboard<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>/invoices<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Invoices<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+</code></pre>
+<p>After saving your changes, you should see a very simple menu. You can even click the links and see how the URL changes! This works because the server included with <code>create-react-app</code> will redirect any requests to your one <code>index.html</code> file. But it’s behaviour isn’t exactly what we’d like; every click will result in a flash and refresh of the page.</p>
+<h2 id="history-and"><a class="header-anchor" href="#history-and" aria-hidden="true">#</a> History and <code>pushState</code></h2>
+<p>Instead of letting the browser do a standard page load when the user selects a menu item, we’d like to use the <a href="https://developer.mozilla.org/en/docs/Web/API/History">History API</a>’s <code>pushState()</code> method to update the URL <em>without</em> reloading the page.</p>
+<p>The behaviour of the History API can differ between browsers. You could deal with these differences by yourself, but it is easier to use the wrapper provided by the <a href="https://github.com/mjackson/history">history</a> package.</p>
+<p>You should have installed this earlier, so all that is left is to import <code>createBrowserHistory</code> and then to actually create one!</p>
+<pre><code class="language-jsx"><span class="token keyword" >import</span> createBrowserHistory <span class="token keyword" >from</span> <span class="token string" >'history/createBrowserHistory'</span>
+
+<span class="token keyword" >const</span> history <span class="token operator" >=</span> <span class="token function" >createBrowserHistory</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+
+<span class="token keyword" >class</span> <span class="token class-name" >App</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<h2 id="links"><a class="header-anchor" href="#links" aria-hidden="true">#</a> Links</h2>
+<p>Now that you have access to a <code>history</code> object, you’ll need to use it to replace the default navigation events with <code>pushState()</code> calls.</p>
+<p>The idea is to add an <code>onClick</code> event handler to each <code>&lt;a&gt;</code> element, and to cancel the default action and call <code>history.push()</code> instead:</p>
+<pre><code class="language-js"><span class="token keyword" >function</span> <span class="token function" >pushDashboard</span><span class="token punctuation" >(</span>e<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    e<span class="token punctuation" >.</span><span class="token function" >preventDefault</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+    history<span class="token punctuation" >.</span><span class="token function" >push</span><span class="token punctuation" >(</span><span class="token string" >'/dashboard'</span><span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>/dashboard<span class="token punctuation" >"</span></span> <span class="token attr-name" >onClick</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>pushDashboard<span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Dashboard<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+</code></pre>
+<p>Of course, writing this out for each link would be traumatic. And it wouldn’t be very user-friendly, either – right clicking isn’t handled well, <code>target</code> props on the <code>&lt;a&gt;</code> are not handled well, etc. Luckily, The <code>react-junctions</code> package provides a <code>&lt;Link&gt;</code> component which handles all of this for you!</p>
+<p>The <code>&lt;Link&gt;</code> component provided by <code>react-junctions</code> takes two parameters:</p>
+<ul>
+<li><code>to</code>: A <a href="/api/junctions/Location">Location</a> object specifying where the Link points top</li>
+<li><code>history</code>: An optional <code>history</code> object whose <code>push()</code> method should be called</li>
+</ul>
+<p>Let’s replace the existing <code>&lt;a&gt;</code> tags with <code>&lt;Link&gt;</code> elements:</p>
+<pre><code class="language-js"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span>
+        <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+        <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/dashboard"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+        Dashboard
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> 
+        <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history
+        to<span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/invoices"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+        Invoices
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+</code></pre>
+<p><em>Note: the <code>history</code> prop is optional, but your links still need access to a <code>history</code>! If you don’t pass <code>history</code> via <code>props</code>, you’ll need to pass it via <code>context</code>, using the <code>&lt;HistoryContext&gt;</code> or <code>&lt;Router&gt;</code> components. We’ll discuss this a little later on.</em></p>
+<p>After saving your file, you should be able to follow click links without a page refresh. You’re making progress! But there is one problem: how do we know that the user has navigated?</p>
+<h2 id="handling-navigation-events"><a class="header-anchor" href="#handling-navigation-events" aria-hidden="true">#</a> Handling navigation events</h2>
+<p>Each time a new state is pushed onto your <code>history</code> object, it notifies any listeners that you’ve added. So how do you add a listener? By using <code>history.listen()</code>!</p>
+<p>Here’s an example which prints the new path to the JavaScript console each time you click a link:</p>
+<pre><code class="language-js">history<span class="token punctuation" >.</span><span class="token function" >listen</span><span class="token punctuation" >(</span>location <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+    console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span>location<span class="token punctuation" >.</span>pathname<span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<p>Of course, just printing the location to the console isn’t going to help very much. What you <em>really</em> want to do is use the location to decide what to render. But this means that the current location will need to be available as component state. And <em>that</em> means that you’re going to need to call <code>history.listen()</code> within a lifecycle method.</p>
+<p>The details on lifecycle methods and component state aren’t really relevant to this guide, so let’s skip them and just say that your <code>App</code> component is going to look something like this:</p>
+<pre><code class="language-js"><span class="token keyword" >class</span> <span class="token class-name" >App</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+    <span class="token function" >constructor</span><span class="token punctuation" >(</span>props<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >super</span><span class="token punctuation" >(</span>props<span class="token punctuation" >)</span> 
+        
+        <span class="token keyword" >this</span><span class="token punctuation" >.</span>state <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+            <span class="token comment" spellcheck="true">// The initial location at page load is</span>
+            <span class="token comment" spellcheck="true">// available at history.location</span>
+            location<span class="token punctuation" >:</span> history<span class="token punctuation" >.</span>location
+        <span class="token punctuation" >}</span>
+        
+        history<span class="token punctuation" >.</span><span class="token function" >listen</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>handleNavigation<span class="token punctuation" >.</span><span class="token function" >bind</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+
+    <span class="token function" >handleNavigation</span><span class="token punctuation" >(</span>location<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> location <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+
+    <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span>
+                        <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+                        <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/dashboard"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+                        Dashboard
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> 
+                        <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history
+                        to<span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/invoices"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+                        Invoices
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>location<span class="token punctuation" >.</span>pathname<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>With this, your new heading element should reflect the current pathname. You’ve made a router! Congratulations!</p>
+<h2 id="do-i-really-need-a-router"><a class="header-anchor" href="#do-i-really-need-a-router" aria-hidden="true">#</a> Do I Really Need A Router?</h2>
+<p>This may seem out of place in a tutorial for a routing library, but it is an important question to ask. <em>Do I Really Need A Router?</em></p>
+<p>The thing about routing libraries is that they’re only useful when they solve a genuine problem. Otherwise, they’re just taking up space.</p>
+<p><strong>The single major problem that a routing library can solve for you is the structural mismatch between URLs and your React component tree.</strong></p>
+<p>If the routing state in your app is only ever used by your top most component – like in the above example – then you don’t have a problem.</p>
+<p>But what if you have nested components which each need to access some part of your routing state? In this case, manually passing navigation state around is clumsy and error-prone.</p>
+<p><img src="/b8f87f8fdb4c0295e0cfd931310d74ba.png" alt="Flat URLs don't match nested components">
+<em>It might not be impossible to get the information to the right component, but it certainly won’t be any fun.</em></p>
+<p>Instead, you’re going to want a representation of your routing state which better matches the structure of your component tree. And that’s where Junctions’ <code>Route</code> structure comes in.</p>
+<p><img src="/63d8539be1b481ea13cd9ca3831fb00f.png" alt="Flat URLs don't match nested components">
+<em>Route objects are designed to match the structure of your component tree perfectly.</em></p>
+<h2 id="routes"><a class="header-anchor" href="#routes" aria-hidden="true">#</a> Routes</h2>
+<p>A <code>Route</code> is a data structure which holds information about the user’s current Location within the app. In fact, it holds <em>exactly</em> the same information as a <code>Location</code>. It just uses a different format, which looks a little like this:</p>
+<pre><code class="language-js"><span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// An name used to identify the *type* of route</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'Invoice'</span><span class="token punctuation" >,</span>
+    
+    <span class="token comment" spellcheck="true">// Params extracted from the URL and query string</span>
+    params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> id<span class="token punctuation" >:</span> <span class="token string" >'12345'</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    
+    <span class="token comment" spellcheck="true">// A property which can hold a *nested* route </span>
+    next<span class="token punctuation" >:</span> <span class="token keyword" >null</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>Returning now to our application, remember that we have a heading which prints the current location by <code>pathname</code>:</p>
+<pre><code class="language-js"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>location<span class="token punctuation" >.</span>pathname<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+</code></pre>
+<p>But suppose what we’d really like to do is print the <code>key</code> of the <code>Route</code> that corresponds to our current location:</p>
+<pre><code class="language-js"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>key<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+</code></pre>
+<p>The question becomes: <em>how do we get hold of one of these <code>Route</code> objects?</em></p>
+<h2 id="converting-objects-to-objects"><a class="header-anchor" href="#converting-objects-to-objects" aria-hidden="true">#</a> Converting <code>Location</code> objects to <code>Route</code> objects</h2>
+<p>There is an easy way to do this, and an <em>even easier</em> way.</p>
+<ul>
+<li>The easy way involves using a <code>Converter</code> object to convert between <code>Location</code> and <code>Route</code> objects.</li>
+<li>The <em>even easier</em> way is to use the <code>&lt;Router&gt;</code> component provided by <code>react-junctions</code>. And as a bonus, this will set <code>history</code> on its context, removing the need to manually pass it to <code>&lt;Link&gt;</code> elements rendered inside it.</li>
+</ul>
+<p>Actually, the <code>&lt;Router&gt;</code> component still uses a <code>Converter</code> internally. It just lets you trade away a little flexibility for a whole lot less boilerplate. And since you probably don’t need to configure the <code>Converter</code> manually, this is a pretty good deal. So let’s go with the <em>even easier</em> option.</p>
+<h2 id="the-component"><a class="header-anchor" href="#the-component" aria-hidden="true">#</a> The <code>&lt;Router&gt;</code> Component</h2>
+<p><code>&lt;Router&gt;</code> is a component provided by the <code>react-junctions</code> package that takes three props, but let me tell you about two of them:</p>
+<ul>
+<li><code>history</code> - a history object to <code>listen()</code> to</li>
+<li><code>render</code> - a React element (or function returning an element) that will be rendered</li>
+</ul>
+<p>The <code>&lt;Router&gt;</code> takes care of all of the history-related boilerplate that was added earlier. All that is left to do is give it a <code>history</code> object and an element to render.</p>
+<p><em>But how does the rendered element know what the current route is?</em></p>
+<p>Each time the current location changes, <code>&lt;Router&gt;</code> will calculate a corresponding <code>Route</code> and inject it into your <code>render</code> element’s props as <code>route</code>. This might be a bit of a mouthful, but it is pretty simple when you see it in action:</p>
+<pre><code class="language-js"><span class="token comment" spellcheck="true">// This component will receive a `route` prop from the `&lt;Router>`</span>
+<span class="token comment" spellcheck="true">// component. You can add any other props that you'd like to pass</span>
+<span class="token comment" spellcheck="true">// within the `render()` method of the App Component.</span>
+<span class="token keyword" >class</span> <span class="token class-name" >Root</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+    <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+                        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/dashboard"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+                            Dashboard
+                        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>
+                        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >"/invoices"</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+                            Invoices
+                        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>route<span class="token punctuation" >.</span>key<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span>
+
+<span class="token keyword" >class</span> <span class="token class-name" >App</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+    <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+                <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+                <span class="token attr-name" >render={&lt;Root</span> <span class="token punctuation" >/></span></span><span class="token punctuation" >}</span>
+            <span class="token operator" >/</span><span class="token operator" >></span>
+        <span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>This makes your app <em>almost</em> complete, but there is just one problem. <code>&lt;Router&gt;</code> doesn’t actually know how to convert <code>Location</code> objects into <code>Route</code> objects.</p>
+<p>Remember that I mentioned that the <code>&lt;Router&gt;</code> takes <em>three</em> props? The third prop is actually <em>required</em>; it is how <code>&lt;Router&gt;</code> knows how to convert between locations and routes. So what is this mysterious third prop? It is the <code>junction</code> prop, and you need to pass it a <code>Junction</code>.</p>
+<h2 id="junctions"><a class="header-anchor" href="#junctions" aria-hidden="true">#</a> Junctions</h2>
+<p>Your <code>&lt;Router&gt;</code> uses a <code>Junction</code> object to decide how to map <code>Location</code> objects to <code>Route</code> objects. But instead of trying to explain how that works, let’s just create one. Here is how:</p>
+<pre><code class="language-js"><span class="token comment" spellcheck="true">// Add this inside your `Root` class definition</span>
+<span class="token keyword" >static</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Dashboard<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >default</span><span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/dashboard'</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    Invoices<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<p>This will add a static <code>junction</code> property to your <code>Root</code> component. All that is left is to pass it to the <code>&lt;Router&gt;</code> element:</p>
+<pre><code class="language-js"><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+            <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>Root<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >render={&lt;Root</span> <span class="token punctuation" >/></span></span><span class="token punctuation" >}</span>
+        <span class="token operator" >/</span><span class="token operator" >></span>
+    <span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>Congratulations! You now have a working application that lets you navigate between pages, and each page will display the route <code>key</code> – i.e. the key of the object passed to <code>createJunction()</code> that contains the current <code>path</code>.</p>
+<h2 id="why-you-need-junctions"><a class="header-anchor" href="#why-you-need-junctions" aria-hidden="true">#</a> Why you need Junctions</h2>
+<p>A <code>Junction</code> is an object which defines the possible locations that a <code>&lt;Router&gt;</code> needs to consider. The question is, <em>why</em> does a <code>&lt;Router&gt;</code> need to know all possible locations?</p>
+<p>To answer this, let’s go over an example. Imagine you have the following URL:</p>
+<pre><code>/invoices/add
+</code></pre>
+<p>Assuming you don’t also have access to a <code>Junction</code> object, my question for you is: <em>what does this URL represent?</em> Give this a little thought and come up with an answer before moving on.</p>
+<p><strong>…</strong></p>
+<p>So what was your answer? Or more precisely, did you even <em>have</em> an answer? The problem is that you can’t actually know, because:</p>
+<ul>
+<li>The URL could represent an <code>Add Invoice</code> form</li>
+<li>The URL could represent an Invoice with the ID <code>add</code></li>
+<li>The URL may be a 404</li>
+<li>Or the URL may be some gateway into a hidden world for all we know</li>
+</ul>
+<p>But once you have access to the <code>Junction</code> you defined above, the answer becomes easy; this URL is a 404. And honestly, this behaviour is kinda crap. So let’s fix it.</p>
+<p>Obviously, the URL <code>/invoices/add</code> should <em>really</em> be used to display an invoice with the ID <code>add</code>. Seriously, you never know what an invoice could be called. But adding a new entry to your <code>Junction</code> for <em>every possible ID</em> doesn’t scale, so let’s use a URL parameter instead.</p>
+<h2 id="parameters"><a class="header-anchor" href="#parameters" aria-hidden="true">#</a> Parameters</h2>
+<p>Parameters are a way to specify that a possible route may have some associated data like an id, or search query.</p>
+<p>To add a parameter to your route, you’ll first need to configure your <code>Junction</code> with it. Given you’d like to display an invoice view for any URL of the form <code>/invoices/???</code>, and you’d like the second part of that URL to be accessible at <code>route.params.id</code>, you can configure your <code>Junction</code> like so:</p>
+<pre><code class="language-js"><span class="token keyword" >static</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Dashboard<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >default</span><span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/dashboard'</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    Invoices<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    InvoiceDetails<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices/:id'</span><span class="token punctuation" >,</span>
+        paramTypes<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+            id<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> required<span class="token punctuation" >:</span> <span class="token boolean" >true</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span> 
+        <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<p>The <code>:</code> character in the path for <code>InvoiceDetails</code> is a way of telling Junctions that a path segment should match any possible value, and store that value in <code>route.params</code>. The string after the <code>:</code> character is the name of the param to store it in.</p>
+<p>Junctions does have one idiosyncrasy with regards to parameters; you need to specify a <code>paramTypes</code> configuration object for each parameter. This configuration can be the blank object <code>{}</code>, or can include things like default values and serialisation helpers – check the API Reference if you’d like to know more.</p>
+<p>Now that you can access the current invoice id at <code>route.params.id</code>, you’ll want to actually display it!</p>
+<p>Keeping in mind that this parameter will only be available when the route <code>key</code> is <code>&quot;InvoiceDetails&quot;</code>, you can display the current id by replacing your existing <code>&lt;h1&gt;</code> tag with something like this:</p>
+<pre><code class="language-js"><span class="token punctuation" >{</span>
+    route<span class="token punctuation" >.</span>key <span class="token operator" >==</span> <span class="token string" >'InvoiceDetails'</span>
+        <span class="token operator" >?</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Invoice #<span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>route<span class="token punctuation" >.</span>params<span class="token punctuation" >.</span>id<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >:</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>route<span class="token punctuation" >.</span>key<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>And if you navigate to <code>/invoices/add</code>, you should now see the text “Invoice #add”!</p>
+<p>Which is great and all, but what if you actually want <code>/invoices/add</code> to display an “Add Invoice” form? And what if you want that add form to share a common layout with the “View Invoice” page?</p>
+<h2 id="routable-components-aka-screens"><a class="header-anchor" href="#routable-components-aka-screens" aria-hidden="true">#</a> Routable Components, aka Screens</h2>
+<p>Trying to force all of your invoicing information into a single <code>Root</code> Component would be kind of claustrophobic, so let’s create a new <code>InvoicesScreen</code> component. And since master-detail views are all the rage, something like this should put you on the path to creating the next unicorn:</p>
+<pre><code class="language-js"><span class="token comment" spellcheck="true">// InvoicesScreen.jsx</span>
+
+<span class="token keyword" >import</span> React<span class="token punctuation" >,</span> <span class="token punctuation" >{</span> Component <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'react'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >class</span> <span class="token class-name" >InvoicesScreen</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+    <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Invoice <span class="token number" >1</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Invoice <span class="token number" >2</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>hr</span> <span class="token punctuation" >/></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Add Invoice<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+                <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span><span class="token keyword" >new</span> <span class="token class-name" >or</span> existing invoice<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p><strong>This tutorial is still a WIP. The below points are an outline for what is to come. If you’d like to help expand on these points, <a href="https://github.com/jamesknelson/junctions/">Pull Requests</a> are welcome!</strong></p>
+<ul>
+<li>While we haven’t added any link tags yet, let’s have a look at the structure</li>
+<li>Notice how what we have is a list of links, and a block of content.</li>
+<li>This is similar to the navbar and content in a standard layout.</li>
+<li>In both cases, what we have a list of links acting as a <em>switch</em> for the content that should be displayed.</li>
+<li>Wherever you see this pattern, you can represent the options of the switch with a Junction.</li>
+</ul>
+<pre><code class="language-js"><span class="token keyword" >static</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Invoice<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/:id'</span><span class="token punctuation" >,</span>
+        paramTypes<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+            invoiceId<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> required<span class="token punctuation" >:</span> <span class="token boolean" >true</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+        <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    Add<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/add'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<ul>
+<li>
+<p>Note that our paths are <em>relative</em>.</p>
+</li>
+<li>
+<p>This is because we don’t know where our component will be mounted.</p>
+</li>
+<li>
+<p>Components need to be reusable. And to enable this, Junctions will use these <code>path</code> arguments as <em>suggestions</em> when deciding what URL to assign to the component. But the actual URLs are decided by junctions – not your component.</p>
+</li>
+<li>
+<p>You may be worried how <em>junctions.js</em> will handle the ‘/add’ URL. After all, it matches both paths.</p>
+</li>
+<li>
+<p>When there is a conflict like this, Junctions will always use the <em>most specific</em> URL. In this case, <code>/add</code> is more specific than <code>/:id</code>, so it will be used.</p>
+</li>
+<li>
+<p>Note that the order that the paths are specified is not important. Only the specificity.</p>
+</li>
+<li>
+<p>Recall that a <code>Junction</code> object just specifies the types of routes which a component can render.</p>
+</li>
+<li>
+<p>In this case, our <code>InvoicesScreen</code> component can render an <code>Invoice</code> route, or an <code>Add</code> route.</p>
+</li>
+<li>
+<p>With this in mind, we can assume that wherever <code>InvoicesScreen</code> is mounted, it will receive a <code>route</code> prop whose key will either be <code>&quot;Invoice&quot;</code> or <code>&quot;Add&quot;</code>.</p>
+</li>
+<li>
+<p>We also know that if the key is <code>&quot;Invoice&quot;</code>, the route object will contain a <code>params</code> object that contains the invoice id.</p>
+</li>
+<li>
+<p>Let’s add support for this to the component</p>
+</li>
+</ul>
+<pre><code class="language-js"><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >const</span> route <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>route
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Invoices<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Invoice <span class="token number" >1</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Invoice <span class="token number" >2</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span> <span class="token attr-name" >className</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>divider<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>Add Invoice<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >{</span>route <span class="token operator" >&amp;&amp;</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+                <span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>key <span class="token operator" >==</span> <span class="token string" >'Add'</span>
+                    <span class="token operator" >?</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span><span class="token punctuation" >></span></span>New <span class="token class-name" >Invoice</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+                    <span class="token punctuation" >:</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span><span class="token punctuation" >></span></span>Invoice <span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>params<span class="token punctuation" >.</span>invoiceId<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+                <span class="token punctuation" >}</span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >}</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<ul>
+<li>Now that the component can handle the supplied route, all that is left is to pass the correct <code>route</code> prop into our <code>&lt;InvoicesScreen&gt;</code> element.</li>
+<li>But where does the <code>route</code> prop come from?</li>
+<li>It comes from the <code>&lt;Router&gt;</code>!</li>
+<li>But doesn’t the <code>route</code> that <code>&lt;Router&gt;</code> supplies correspond to the <code>App</code> component itself?</li>
+<li>It actually corresponds to both. Just like a React element holds its own props as well as its children, a <em>junctions.js</em> route holds its own params as well as the routes for any child components.</li>
+<li>These “child” routes are stored under the <code>next</code> prop.</li>
+</ul>
+<pre><code class="language-js"><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+            <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>App<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >render</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> route <span class="token punctuation" >}</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span>
+                route<span class="token punctuation" >.</span>key <span class="token operator" >==</span> <span class="token string" >'Invoices'</span>
+                    <span class="token operator" >?</span> <span class="token operator" >&lt;</span>InvoicesScreen route<span class="token punctuation" >=</span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>next<span class="token punctuation" >}</span></span> <span class="token punctuation" >/></span></span>
+                    <span class="token punctuation" >:</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>key<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+            <span class="token punctuation" >}</span>
+        <span class="token operator" >/</span><span class="token operator" >></span>
+    <span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<ul>
+<li>But while this code is mostly correct, there is still one thing missing.</li>
+<li>Currently, <code>route.next</code> will always be null.</li>
+<li>Remember that the junction for the <code>InvoicesScreen</code> component only specified <em>relative</em> paths, not full URLs.</li>
+<li><code>&lt;InvoicesScreen&gt;</code> is a child of the <code>App</code> component that is rendered whenever the app’s path is <code>/invoices</code>. Because of this, it is probably obvious to you that the paths of the <code>InvoicesScreen</code> junction should be relative to <code>/invoices</code>.</li>
+<li>But Junctions doesn’t know this unless you tell it. And to do so, you must specify the <code>next</code> Junction when the <code>Invoices</code> route is active:</li>
+</ul>
+<pre><code class="language-js"><span class="token keyword" >static</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Dashboard<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >default</span><span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/dashboard'</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    Invoices<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices'</span><span class="token punctuation" >,</span>
+        next<span class="token punctuation" >:</span> InvoicesScreen<span class="token punctuation" >.</span>junction<span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<ul>
+<li>
+<p>And there you have it. This should work if you type some locations in the address bar manually. For example, try <code>/invoices/0001</code> or <code>/invoices/add</code>.</p>
+</li>
+<li>
+<p>All that is left is to add links to the <code>InvoicesScreen</code> component</p>
+</li>
+<li>
+<p>But how do we choose what the value of <code>to</code> should be?</p>
+</li>
+<li>
+<p><code>InvoicesScreen</code> is a <em>component</em>. Even if we know where it’ll be mounted within this example, we can’t be sure that it will <em>always</em> be mounted under <code>/invoices</code>.</p>
+</li>
+<li>
+<p>For example, what if we’d like to display a list of invoices within a page for a given customer? Or what if we’d like to display a list of invoices within a modal?</p>
+</li>
+<li>
+<p>The problem is that <code>pathname</code> changes depending on the context that the component is used in.</p>
+</li>
+<li>
+<p>This is in contrast to the component’s <code>route</code> prop – which only contains information specific to the component itself.</p>
+</li>
+<li>
+<p>In fact, your component’s <code>Junction</code> object actually provides a <code>createRoute()</code> method that lets you create <code>Route</code> objects that point within your component.</p>
+</li>
+<li>
+<p>You can probably see where this is going. Route objects are relative. And ideally, we’d be able to specify a <code>&lt;Link&gt;</code> element’s with something relative, like routes:</p>
+</li>
+</ul>
+<pre><code class="language-jsx"><span class="token comment" spellcheck="true">// This won't work</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Invoice'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> invoiceId<span class="token punctuation" >:</span> <span class="token number" >1</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Invoice <span class="token number" >1</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Invoice'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> invoiceId<span class="token punctuation" >:</span> <span class="token number" >2</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Invoice <span class="token number" >2</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Add'</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Add Invoice<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+</code></pre>
+<ul>
+<li>But this won’t work, because <code>Link</code> components take <code>Location</code> objects. And since the browser History API doesn’t understand routes, there is no way around this.</li>
+<li><em>If only there was some way to convert routes into locations.</em></li>
+<li><em>Something like a <code>locate</code> function handily passed into our component.</em></li>
+</ul>
+<pre><code class="language-jsx"><span class="token comment" spellcheck="true">// This will work, if `locate` exists</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Invoice'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> invoiceId<span class="token punctuation" >:</span> <span class="token number" >1</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Invoice <span class="token number" >1</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Invoice'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> invoiceId<span class="token punctuation" >:</span> <span class="token number" >2</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Invoice <span class="token number" >2</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'Add'</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>Add Invoice<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+</code></pre>
+<ul>
+<li>And as you’ve probably guessed, <code>locate</code> does exist!</li>
+<li>It just needs to be passed in from your component’s parent:</li>
+</ul>
+<pre><code class="language-jsx"><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+            <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>App<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+            <span class="token attr-name" >render</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> route <span class="token punctuation" >}</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span>
+                route<span class="token punctuation" >.</span>key <span class="token operator" >==</span> <span class="token string" >'Invoices'</span>
+                    <span class="token operator" >?</span> <span class="token operator" >&lt;</span>InvoicesScreen
+                        route<span class="token punctuation" >=</span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>next<span class="token punctuation" >}</span>
+                        locate<span class="token punctuation" >=</span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>locate<span class="token punctuation" >}</span></span>
+                      <span class="token punctuation" >/></span></span>
+                    <span class="token punctuation" >:</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span><span class="token punctuation" >{</span>route<span class="token punctuation" >.</span>key<span class="token punctuation" >}</span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+            <span class="token punctuation" >}</span>
+        <span class="token operator" >/</span><span class="token operator" >></span>
+    <span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<ul>
+<li>This is a little verbose, but the beauty of <em>junctions.js</em> is it gives you freedom to write your own helpers.</li>
+</ul>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="64"><a class="MenuWrapper-arrows-next" href="/guide/introduction/do-i-need-a-router" data-reactid="65">Do I Need A Router?</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="66"><!-- react-text: 67 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="68">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/2.docs-tutorial-1f4a8afedad643591705.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

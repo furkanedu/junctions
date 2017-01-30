@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pass history via context - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="Pass history via context" />
+    <meta name="twitter:title" content="Pass history via context" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="1014025282"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link RootWrapper-link-active" data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/guide/advanced/contextual-links" data-reactid="16">Pass history via context</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/guide" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">Tutorial</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">Introduction</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/guide/introduction/do-i-need-a-router" class="MenuWrapper-link  " data-reactid="24">Do I Need A Router?</a></li><li data-reactid="25"><a href="/guide/introduction/motivation" class="MenuWrapper-link  " data-reactid="26">Motivation</a></li><li data-reactid="27"><a href="/guide/introduction/three-principles" class="MenuWrapper-link  " data-reactid="28">The Haiku Of Routing Principles</a></li><li data-reactid="29"><a href="/guide/introduction/what-you-get-from-junctions" class="MenuWrapper-link  " data-reactid="30">What You Get From Junctions</a></li></ul></li><li class="MenuWrapper-section" data-reactid="31"><div data-reactid="32">Basics</div><ul class="MenuWrapper-submenu" data-reactid="33"><li data-reactid="34"><a href="/guide/basics/locations" class="MenuWrapper-link  " data-reactid="35">Locations</a></li><li data-reactid="36"><a href="/guide/basics/routes" class="MenuWrapper-link  " data-reactid="37">Routes</a></li><li data-reactid="38"><a href="/guide/basics/junctions" class="MenuWrapper-link  " data-reactid="39">Junctions</a></li><li data-reactid="40"><a href="/guide/basics/converting-locations-to-routes" class="MenuWrapper-link  " data-reactid="41">Converting Locations to Routes</a></li><li data-reactid="42"><a href="/guide/basics/the-screen-pattern" class="MenuWrapper-link  " data-reactid="43">The Screen Pattern</a></li><li data-reactid="44"><a href="/guide/basics/links" class="MenuWrapper-link  " data-reactid="45">Links</a></li><li data-reactid="46"><a href="/guide/basics/example-contact-list" class="MenuWrapper-link  " data-reactid="47">Example: Contact List</a></li></ul></li><li class="MenuWrapper-section" data-reactid="48"><div data-reactid="49">Advanced</div><ul class="MenuWrapper-submenu" data-reactid="50"><li data-reactid="51"><a href="/guide/advanced/contextual-links" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="52">Pass history via context</a></li><li data-reactid="53"><a href="/guide/advanced/canonical-locations" class="MenuWrapper-link  " data-reactid="54">Canonical Location</a></li></ul></li><li class="MenuWrapper-heading" data-reactid="55"><a href="/guide/Glossary" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="56">Glossary</a></li></ul><div class="MenuWrapper-arrows" data-reactid="57"><a class="MenuWrapper-arrows-prev" href="/guide/basics/example-contact-list" data-reactid="58">Example: Contact List</a><a class="MenuWrapper-arrows-next" href="/guide/advanced/canonical-locations" data-reactid="59">Canonical Location</a></div></div><div class="MenuWrapper-body" data-reactid="60"><h1 class="MenuWrapper-title" data-reactid="61">Pass history via context</h1><div class="MarkdownView" data-reactid="62"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="63"></div><markdown data-reactid="64"><p>By wrapping your application with the <a href="/api/react-junctions/HistoryContext">&lt;HistoryContext&gt;</a> and <a href="/api/react-junctions/Router">&lt;Router&gt;</a>  components from the <code>react-junctions</code> package, you eliminate the need to pass <code>history</code> via props to each <a href="/api/react-junctions/Link">&lt;Link&gt;</a>.</p>
+<h2 id="example"><a class="header-anchor" href="#example" aria-hidden="true">#</a> Example</h2>
+<pre><code class="language-jsx"><span class="token keyword" >import</span> React <span class="token keyword" >from</span> <span class="token string" >'react'</span>
+<span class="token keyword" >import</span> ReactDOM <span class="token keyword" >from</span> <span class="token string" >'react-dom'</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> HistoryContext <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'react-junctions'</span>
+<span class="token keyword" >import</span> AppScreen <span class="token keyword" >from</span> <span class="token string" >'./screens/AppScreen'</span>
+
+<span class="token keyword" >function</span> <span class="token function" >render</span><span class="token punctuation" >(</span>history<span class="token punctuation" >,</span> locate<span class="token punctuation" >,</span> route<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  ReactDOM<span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>HistoryContext</span> <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>AppScreen</span>
+        <span class="token attr-name" >routes</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>route<span class="token punctuation" >}</span></span>
+        <span class="token attr-name" >locate</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>locate<span class="token punctuation" >}</span></span>
+      <span class="token punctuation" >/></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>HistoryContext</span><span class="token punctuation" >></span></span><span class="token punctuation" >,</span>
+    document<span class="token punctuation" >.</span><span class="token function" >getElementById</span><span class="token punctuation" >(</span><span class="token string" >'app'</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="65"><a class="MenuWrapper-arrows-prev" href="/guide/basics/example-contact-list" data-reactid="66">Example: Contact List</a><a class="MenuWrapper-arrows-next" href="/guide/advanced/canonical-locations" data-reactid="67">Canonical Location</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="68"><!-- react-text: 69 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="70">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/28.docs-advanced-contextual-links-e7484a482f77bcc932e9.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

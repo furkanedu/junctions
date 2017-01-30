@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><Router> - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="&lt;Router&gt;" />
+    <meta name="twitter:title" content="&lt;Router&gt;" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="-1016732679"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link " data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link RootWrapper-link-active" data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/api/react-junctions/Router" data-reactid="16">&lt;Router&gt;</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/api" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">About The API</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">junctions</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/api/junctions/Converter" class="MenuWrapper-link  " data-reactid="24">Converter</a></li><li data-reactid="25"><a href="/api/junctions/Junction" class="MenuWrapper-link  " data-reactid="26">Junction</a></li><li data-reactid="27"><a href="/api/junctions/Location" class="MenuWrapper-link  " data-reactid="28">Location</a></li><li data-reactid="29"><a href="/api/junctions/Route" class="MenuWrapper-link  " data-reactid="30">Route</a></li><li data-reactid="31"><a href="/api/junctions/createConverter" class="MenuWrapper-link  " data-reactid="32">createConverter</a></li><li data-reactid="33"><a href="/api/junctions/createJunction" class="MenuWrapper-link  " data-reactid="34">createJunction</a></li><li data-reactid="35"><a href="/api/junctions/locationsEqual" class="MenuWrapper-link  " data-reactid="36">locationsEqual</a></li><li data-reactid="37"><a href="/api/junctions/routesMatch" class="MenuWrapper-link  " data-reactid="38">routesMatch</a></li></ul></li><li class="MenuWrapper-section" data-reactid="39"><div data-reactid="40">react-junctions</div><ul class="MenuWrapper-submenu" data-reactid="41"><li data-reactid="42"><a href="/api/react-junctions/HistoryContext" class="MenuWrapper-link  " data-reactid="43">&lt;HistoryContext&gt;</a></li><li data-reactid="44"><a href="/api/react-junctions/Link" class="MenuWrapper-link  " data-reactid="45">&lt;Link&gt;</a></li><li data-reactid="46"><a href="/api/react-junctions/Router" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="47">&lt;Router&gt;</a></li></ul></li></ul><div class="MenuWrapper-arrows" data-reactid="48"><a class="MenuWrapper-arrows-prev" href="/api/react-junctions/Link" data-reactid="49">&lt;Link&gt;</a></div></div><div class="MenuWrapper-body" data-reactid="50"><h1 class="MenuWrapper-title" data-reactid="51">&lt;Router&gt;</h1><div class="MarkdownView" data-reactid="52"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="53"></div><markdown data-reactid="54"><p>Converts the <a href="/api/junctions/Location">Location</a> objects emitted by the supplied <a href="https://github.com/mjackson/history#properties">History</a> into <a href="/api/junctions/Route">Route</a> objects, and passes these to the supplied renderer.</p>
+<p>The renderer is defined by the <code>render</code> prop, which should take one of these forms:</p>
+<ul>
+<li>A function which takes a <code>{ route, locate }</code> object and returns a React Element</li>
+<li>A Component which accepts a <code>route</code> and <code>locate</code> props</li>
+<li>A React Element which will have <code>route</code> and <code>locate</code> props added via <a href="https://facebook.github.io/react/docs/react-api.html#cloneelement">React.cloneElement</a></li>
+</ul>
+<p>This component works be internally creating and wrapping a <a href="/api/junctions/Converter">Converter</a> object, and passing any received <code>Location</code> objects to its <a href="/api/junctions/Converter#routelocation">converter.route()</a> method. The optional <code>baseLocation</code> prop behaves the same as the <code>baseLocation</code> argument on <a href="/api/junctions/createConverter">createConverter</a>.</p>
+<p>Use this component to reduce boilerplate. If you find you need more control, you can always revert to managing your own <code>Converter</code> instance later on.</p>
+<h4 id="props"><a class="header-anchor" href="#props" aria-hidden="true">#</a> Props</h4>
+<ul>
+<li><code>history</code> (<em>History</em>): A history object</li>
+<li><code>junction</code> (<em><a href="/api/junctions/Junction">Junction</a></em>): A map of possible routes</li>
+<li><code>render</code> (<em>function | Component | ReactElement</em>): A handler to render your current route</li>
+<li><code>baseLocation</code> <em><small>optional</small></em> (<em><a href="/api/junctions/Location">Location</a></em>): The parts of your URLs which must exist, but are ignored for routing purposes</li>
+</ul>
+<h4 id="child-context"><a class="header-anchor" href="#child-context" aria-hidden="true">#</a> Child Context</h4>
+<ul>
+<li><code>history</code> (<em>History</em>): A history object</li>
+</ul>
+<p>This component’s context is managed by an internal <a href="/api/react-junctions/HistoryContext">&lt;HistoryContext&gt;</a> element.</p>
+<h4 id="example"><a class="header-anchor" href="#example" aria-hidden="true">#</a> Example</h4>
+<p>Most of this website’s live examples use a <code>&lt;Router&gt;</code> component to handle routing.</p>
+<p>In particular, the <a href="/examples/BaseLocation">Base Location</a> example includes a <code>&lt;Router&gt;</code> with <code>baseLocation</code>. View this page to see the <code>AppScreen</code> component which is used below.</p>
+<pre><code class="language-js"><span class="token comment" spellcheck="true">// By providing a `baseLocation` prop with the '/mountpoint' pathname, we</span>
+<span class="token comment" spellcheck="true">// indicate that *all* URLs must start with `/mountpoint', and thus it</span>
+<span class="token comment" spellcheck="true">// should be ignored for routing purposes.</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+  <span class="token attr-name" >baseLocation</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span>pathname<span class="token punctuation" >:</span> <span class="token string" >'/mountpoint'</span><span class="token punctuation" >}</span><span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>AppScreen<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >render</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> route<span class="token punctuation" >,</span> locate <span class="token punctuation" >}</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token operator" >&lt;</span>AppScreen route<span class="token punctuation" >=</span><span class="token punctuation" >{</span>rouute<span class="token punctuation" >}</span> locate<span class="token punctuation" >=</span><span class="token punctuation" >{</span>locate<span class="token punctuation" >}</span></span> <span class="token punctuation" >/></span></span><span class="token punctuation" >}</span>
+<span class="token operator" >/</span><span class="token operator" >></span>
+
+<span class="token comment" spellcheck="true">// If your handler component takes `route` and `locate` props, you can</span>
+<span class="token comment" spellcheck="true">// pass it to the `render` prop directly</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+  <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>AppScreen<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >render</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>AppScreen<span class="token punctuation" >}</span></span>
+<span class="token punctuation" >/></span></span>
+
+<span class="token comment" spellcheck="true">// If you'd like to pass extra props to your component, you can pass a</span>
+<span class="token comment" spellcheck="true">// React Element to `render`</span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Router</span>
+  <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >junction</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>AppScreen<span class="token punctuation" >.</span>junction<span class="token punctuation" >}</span></span>
+  <span class="token attr-name" >render</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token operator" >&lt;</span>AppScreen user<span class="token punctuation" >=</span><span class="token punctuation" >{</span>currentUser<span class="token punctuation" >}</span></span> <span class="token punctuation" >/></span></span><span class="token punctuation" >}</span>
+<span class="token operator" >/</span><span class="token operator" >></span>
+</code></pre>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="55"><a class="MenuWrapper-arrows-prev" href="/api/react-junctions/Link" data-reactid="56">&lt;Link&gt;</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="57"><!-- react-text: 58 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="59">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/16.docs-api-react-junctions-Router-c5c7f14deb7bf92ff5b5.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

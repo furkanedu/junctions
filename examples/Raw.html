@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raw - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="Raw" />
+    <meta name="twitter:title" content="Raw" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="-1951451159"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link " data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link RootWrapper-link-active" data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/examples/Raw" data-reactid="16">Raw</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/examples/Raw" class="MenuWrapper-link MenuWrapper-link-active MenuWrapper-link-primary" data-reactid="19">Raw</a></li><li class="MenuWrapper-heading" data-reactid="20"><a href="/examples/Basic" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="21">Basic</a></li><li class="MenuWrapper-heading" data-reactid="22"><a href="/examples/BaseLocation" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="23">Base Location</a></li></ul><div class="MenuWrapper-arrows" data-reactid="24"><a class="MenuWrapper-arrows-next" href="/examples/Basic" data-reactid="25">Basic</a></div></div><div class="MenuWrapper-body" data-reactid="26"><h1 class="MenuWrapper-title" data-reactid="27">Raw</h1><div class="ExampleWrapper" data-reactid="28"><h2 data-reactid="29">Demo</h2><div class="BrowserView undefined" data-reactid="30"><div class="BrowserView-toolbar" data-reactid="31"><button type="button" disabled="" class="BrowserView-button" data-reactid="32">&lt;</button><button type="button" disabled="" class="BrowserView-button" data-reactid="33">&gt;</button><input value="/" class="BrowserView-input" data-reactid="34"/></div><div class="BrowserView-content" data-reactid="35"><div data-reactid="36"><nav data-reactid="37"><a href="/" data-reactid="38">Home</a><a href="/about" data-reactid="39">About</a><a href="/help" data-reactid="40">Help</a><a href="/computer-says-no" data-reactid="41">Fail</a></nav><h2 data-reactid="42">Home</h2></div></div></div><h2 data-reactid="43">Source</h2><pre style="font-size:12px;" class="PrismSourceView" data-reactid="44"><code data-reactid="45"><span class="token comment" spellcheck="true">/**
+ * This example shows how to use Junctions without any react-router
+ * integrations, except the `&lt;Link>` component (which is not specific
+ * to Junctions).
+ *
+ * In particular, we forgo use of the `&lt;Router>` component, instead
+ * creating a managing our own `Converter` object within the `&lt;BasicExample>`
+ * component.
+ */</span>
+
+<span class="token keyword" >import</span> React<span class="token punctuation" >,</span> <span class="token punctuation" >{</span> Component<span class="token punctuation" >,</span> PropTypes <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'react'</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> createJunction<span class="token punctuation" >,</span> createConverter<span class="token punctuation" >,</span> locationsEqual <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'junctions'</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> Link <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'react-junctions'</span>
+
+
+<span class="token comment" spellcheck="true">// Create a Junction to specify the possible navigation states of our</span>
+<span class="token comment" spellcheck="true">// &lt;AppScreen> component</span>
+<span class="token keyword" >const</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  about<span class="token punctuation" >:</span> <span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+  help<span class="token punctuation" >:</span> <span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+
+<span class="token keyword" >function</span> <span class="token function" >AppScreen</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> route<span class="token punctuation" >,</span> locate<span class="token punctuation" >,</span> history <span class="token punctuation" >}</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  <span class="token comment" spellcheck="true">// Choose what content to render based on the current state of our</span>
+  <span class="token comment" spellcheck="true">// junction, as read from `props.route`</span>
+  <span class="token keyword" >let</span> content
+  <span class="token keyword" >switch</span> <span class="token punctuation" >(</span>route <span class="token operator" >?</span> route<span class="token punctuation" >.</span>key <span class="token punctuation" >:</span> route<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >case</span> <span class="token string" >'about'</span><span class="token punctuation" >:</span>
+      content <span class="token operator" >=</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>About<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+      <span class="token keyword" >break</span>
+
+    <span class="token keyword" >case</span> <span class="token string" >'help'</span><span class="token punctuation" >:</span>
+      content <span class="token operator" >=</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Help<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+      <span class="token keyword" >break</span>
+
+    <span class="token comment" spellcheck="true">// As our Junction has no default branch, we handle the default</span>
+    <span class="token comment" spellcheck="true">// case </span>
+    <span class="token keyword" >case</span> <span class="token keyword" >null</span><span class="token punctuation" >:</span>
+      content <span class="token operator" >=</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Home<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+      <span class="token keyword" >break</span>
+
+    <span class="token comment" spellcheck="true">// An undefined route indicates that the converter didn't know how</span>
+    <span class="token comment" spellcheck="true">// to handle the received location</span>
+    <span class="token keyword" >case</span> undefined<span class="token punctuation" >:</span>
+      content <span class="token operator" >=</span> <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span><span class="token number" >404</span> <span class="token operator" >-</span> Computer Says No<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+      <span class="token keyword" >break</span>
+  <span class="token punctuation" >}</span>
+
+  <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>nav</span><span class="token punctuation" >></span></span>
+        <span class="token punctuation" >{</span><span class="token comment" spellcheck="true">/*
+          Use `locate()` to get a `Location` for the current route, but with
+          any children nulled out
+        */</span><span class="token punctuation" >}</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+          Home
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'about'</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+          About
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token function" >locate</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >.</span><span class="token function" >createRoute</span><span class="token punctuation" >(</span><span class="token string" >'help'</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+          Help
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+
+        <span class="token punctuation" >{</span><span class="token comment" spellcheck="true">/*
+          We can specify our own Location with the `&lt;Link>` component, but
+          there is no gaurantee it will be correct!
+        */</span><span class="token punctuation" >}</span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>Link</span> <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span>history<span class="token punctuation" >}</span></span> <span class="token attr-name" >to</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token punctuation" >{</span> pathname<span class="token punctuation" >:</span> <span class="token string" >'/computer-says-no'</span> <span class="token punctuation" >}</span><span class="token punctuation" >}</span></span><span class="token punctuation" >></span></span>
+          Fail
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>Link</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>nav</span><span class="token punctuation" >></span></span>
+      <span class="token punctuation" >{</span>content<span class="token punctuation" >}</span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span>
+
+
+<span class="token comment" spellcheck="true">/**
+ * All of the live examples export a single component that takes a `history`
+ * object which is passed in by the documentation website app.
+ * 
+ * You could still use these example component's as-is in a standard React
+ * app -- you'd just need to create and pass in your own `history`.
+ * 
+ * To find out about `history` objects, see
+ * https://github.com/mjackson/history.
+ */</span>
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token keyword" >class</span> <span class="token class-name" >BasicExample</span> <span class="token keyword" >extends</span> <span class="token class-name" >Component</span> <span class="token punctuation" >{</span>
+
+  <span class="token function" >componentWillMount</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// As an application's Junction doesn't usually change at runtime,</span>
+    <span class="token comment" spellcheck="true">// we only ever need a single application-wide converter</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>converter <span class="token operator" >=</span> <span class="token function" >createConverter</span><span class="token punctuation" >(</span>junction<span class="token punctuation" >)</span>
+
+    <span class="token comment" spellcheck="true">// Handle the application's initial location</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >handleLocationChange</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>history<span class="token punctuation" >.</span>location<span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+
+  <span class="token function" >componentDidMount</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>unlisten <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>history<span class="token punctuation" >.</span><span class="token function" >listen</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>handleLocationChange<span class="token punctuation" >.</span><span class="token function" >bind</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+
+  <span class="token function" >componentWillUnmount</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>unlisten<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >unlisten</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span>unlisten <span class="token operator" >=</span> <span class="token keyword" >null</span>  
+    <span class="token punctuation" >}</span>
+  <span class="token punctuation" >}</span>
+
+  <span class="token function" >handleLocationChange</span><span class="token punctuation" >(</span>location<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// Convert the Location object emitted by our history into a Route</span>
+    <span class="token comment" spellcheck="true">// through our application Junction</span>
+    <span class="token keyword" >const</span> route <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>converter<span class="token punctuation" >.</span><span class="token function" >route</span><span class="token punctuation" >(</span>location<span class="token punctuation" >)</span>
+
+    <span class="token comment" spellcheck="true">// The Route produced by the converter may contain informatino which</span>
+    <span class="token comment" spellcheck="true">// the received Location object doesn't, due to default parameters</span>
+    <span class="token comment" spellcheck="true">// and default branches. If this is the case, create a new Location</span>
+    <span class="token comment" spellcheck="true">// object containing the new information, and redirect to it</span>
+    <span class="token keyword" >const</span> canonicalLocation <span class="token operator" >=</span> route <span class="token operator" >&amp;&amp;</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>converter<span class="token punctuation" >.</span><span class="token function" >locate</span><span class="token punctuation" >(</span>route<span class="token punctuation" >)</span>
+    <span class="token keyword" >if</span> <span class="token punctuation" >(</span>route <span class="token operator" >&amp;&amp;</span> <span class="token operator" >!</span><span class="token function" >locationsEqual</span><span class="token punctuation" >(</span>location<span class="token punctuation" >,</span> canonicalLocation<span class="token punctuation" >)</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>history<span class="token punctuation" >.</span><span class="token function" >replace</span><span class="token punctuation" >(</span>canonicalLocation<span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span>
+
+    <span class="token comment" spellcheck="true">// Add the route to component state to trigger a re-render</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> route <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+
+  <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >(</span>
+      <span class="token comment" spellcheck="true">// Screen Components always take `route` and `locate` props, so they</span>
+      <span class="token comment" spellcheck="true">// can decide what to render, and create Locations for any Links</span>
+      <span class="token comment" spellcheck="true">// and redirects.</span>
+      <span class="token comment" spellcheck="true">//</span>
+      <span class="token comment" spellcheck="true">// In this example, we also pass a history. Usually, this would be</span>
+      <span class="token comment" spellcheck="true">// passed via context, using a &lt;Router> or &lt;HistoryContext> component.</span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>AppScreen</span>
+        <span class="token attr-name" >route</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>route<span class="token punctuation" >}</span></span>
+        <span class="token attr-name" >locate</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>converter<span class="token punctuation" >.</span>locate<span class="token punctuation" >}</span></span>
+        <span class="token attr-name" >history</span><span class="token script language-javascript" ><span class="token punctuation" >=</span><span class="token punctuation" >{</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>history<span class="token punctuation" >}</span></span>
+      <span class="token punctuation" >/></span></span>
+    <span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+
+<span class="token punctuation" >}</span>
+
+
+</code></pre></div><div class="MenuWrapper-arrows" data-reactid="46"><a class="MenuWrapper-arrows-next" href="/examples/Basic" data-reactid="47">Basic</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="48"><!-- react-text: 49 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="50">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/4.examples-Raw-example-a3ad71e31e8725b39a36.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

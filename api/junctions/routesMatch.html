@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>routesMatch - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta property="og:description" content="Junctions.js - Composable routing build from the ground up for React" />
+    <meta name="twitter:description" content="Junctions.js - Composable routing build from the ground up for React" />
+  
+  
+    <meta property="og:title" content="routesMatch" />
+    <meta name="twitter:title" content="routesMatch" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="1362704767"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link " data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link RootWrapper-link-active" data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/api/junctions/routesMatch" data-reactid="16">routesMatch</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/api" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">About The API</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">junctions</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/api/junctions/Converter" class="MenuWrapper-link  " data-reactid="24">Converter</a></li><li data-reactid="25"><a href="/api/junctions/Junction" class="MenuWrapper-link  " data-reactid="26">Junction</a></li><li data-reactid="27"><a href="/api/junctions/Location" class="MenuWrapper-link  " data-reactid="28">Location</a></li><li data-reactid="29"><a href="/api/junctions/Route" class="MenuWrapper-link  " data-reactid="30">Route</a></li><li data-reactid="31"><a href="/api/junctions/createConverter" class="MenuWrapper-link  " data-reactid="32">createConverter</a></li><li data-reactid="33"><a href="/api/junctions/createJunction" class="MenuWrapper-link  " data-reactid="34">createJunction</a></li><li data-reactid="35"><a href="/api/junctions/locationsEqual" class="MenuWrapper-link  " data-reactid="36">locationsEqual</a></li><li data-reactid="37"><a href="/api/junctions/routesMatch" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="38">routesMatch</a></li></ul></li><li class="MenuWrapper-section" data-reactid="39"><div data-reactid="40">react-junctions</div><ul class="MenuWrapper-submenu" data-reactid="41"><li data-reactid="42"><a href="/api/react-junctions/HistoryContext" class="MenuWrapper-link  " data-reactid="43">&lt;HistoryContext&gt;</a></li><li data-reactid="44"><a href="/api/react-junctions/Link" class="MenuWrapper-link  " data-reactid="45">&lt;Link&gt;</a></li><li data-reactid="46"><a href="/api/react-junctions/Router" class="MenuWrapper-link  " data-reactid="47">&lt;Router&gt;</a></li></ul></li></ul><div class="MenuWrapper-arrows" data-reactid="48"><a class="MenuWrapper-arrows-prev" href="/api/junctions/locationsEqual" data-reactid="49">locationsEqual</a><a class="MenuWrapper-arrows-next" href="/api/react-junctions/HistoryContext" data-reactid="50">&lt;HistoryContext&gt;</a></div></div><div class="MenuWrapper-body" data-reactid="51"><h1 class="MenuWrapper-title" data-reactid="52">routesMatch</h1><div class="MarkdownView" data-reactid="53"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="54"></div><markdown data-reactid="55"><p>Compares two <a href="/api/junctions/Route">Route</a> objects.</p>
+<h4 id="exact-match-mode"><a class="header-anchor" href="#exact-match-mode" aria-hidden="true">#</a> Exact match mode</h4>
+<p>If <code>reqiureExact</code> is true, this function will return <code>true</code> if <code>partial</code> and <code>specific</code> are identical.</p>
+<p>Use this when you want to know if two routes are exactly the same.</p>
+<h4 id="partial-match-mode"><a class="header-anchor" href="#partial-match-mode" aria-hidden="true">#</a> Partial match mode</h4>
+<p>If <code>requireExact</code> is false, this function will return <code>true</code> if the <code>partial</code> route does not contain any information which differs from that in the <code>specific</code> route.</p>
+<p>Use this when you want to know if the active route is a child of some arbitrary route. For example, when you want to highlight menu items.</p>
+<h4 id="arguments"><a class="header-anchor" href="#arguments" aria-hidden="true">#</a> Arguments</h4>
+<ul>
+<li><code>specific</code> (<em><a href="/api/junctions/Route">Route</a></em>)</li>
+<li><code>partial</code> (<em><a href="/api/junctions/Route">Route</a></em>)</li>
+<li><code>requireExact</code> (<em>bool</em>): If false, will also return true for partial matches</li>
+</ul>
+<h4 id="returns"><a class="header-anchor" href="#returns" aria-hidden="true">#</a> Returns</h4>
+<p>(<em>boolean</em>)</p>
+<h4 id="example"><a class="header-anchor" href="#example" aria-hidden="true">#</a> Example</h4>
+<p>This function is used to handle the highlighting for the side menus on the <a href="https://junctions.js.org">Junctions website</a>.</p>
+<p>This website uses a custom <code>&lt;Link&gt;</code> component which accepts the page’s current <code>Route</code> via <a href="https://facebook.github.io/react/docs/context.html">React Context</a>. It then compares the given route with the current route to decide whether to highlight the menu item.</p>
+<pre><code class="language-js"><span class="token keyword" >const</span> active <span class="token operator" >=</span>
+  <span class="token keyword" >this</span><span class="token punctuation" >.</span>context<span class="token punctuation" >.</span>currentRoute <span class="token operator" >&amp;&amp;</span>
+  <span class="token function" >routesMatch</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>context<span class="token punctuation" >.</span>currentRoute<span class="token punctuation" >,</span> route<span class="token punctuation" >,</span> <span class="token boolean" >false</span><span class="token punctuation" >)</span>
+</code></pre>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="56"><a class="MenuWrapper-arrows-prev" href="/api/junctions/locationsEqual" data-reactid="57">locationsEqual</a><a class="MenuWrapper-arrows-next" href="/api/react-junctions/HistoryContext" data-reactid="58">&lt;HistoryContext&gt;</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="59"><!-- react-text: 60 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="61">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/19.docs-api-junctions-routesMatch-2dbd9af703416bc6295f.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>

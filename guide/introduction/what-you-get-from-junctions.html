@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What You Get From Junctions - junctions.js</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:site_name" content="Junctions.js" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+
+  
+    <meta name="description" content="Junctions.js gives you three tools that make your life as a React developer easier." />
+    <meta property="og:description" content="Junctions.js gives you three tools that make your life as a React developer easier." />
+    <meta name="twitter:description" content="Junctions.js gives you three tools that make your life as a React developer easier." />
+  
+  
+    <meta property="og:title" content="What You Get From Junctions" />
+    <meta name="twitter:title" content="What You Get From Junctions" />
+  
+  
+    <meta property="og:image" content="https://junctions.js.org/logo.png?1" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?1" />
+  
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/site-bundle.f5f606b3.css">
+  
+</head>
+<body>
+  <div id="app">
+    <div class="RootWrapper" data-reactroot="" data-reactid="1" data-react-checksum="-83905331"><div class="RootWrapper-header" data-reactid="2"><div class="RootWrapper-header-inner" data-reactid="3"><a href="/" class="RootWrapper-junctions" data-reactid="4"><div class="RootWrapper-junctions-logo" data-reactid="5"></div><!-- react-text: 6 -->Junctions<!-- /react-text --></a><a class="RootWrapper-github" href="https://github.com/jamesknelson/junctions" data-reactid="7">GitHub</a><div class="RootWrapper-links" data-reactid="8"><a href="/guide" class="RootWrapper-link RootWrapper-link-active" data-reactid="9">Guide</a><a href="/examples" class="RootWrapper-link " data-reactid="10">Examples</a><a href="/api" class="RootWrapper-link " data-reactid="11">API Reference</a></div></div></div><div class="RootWrapper-body" data-reactid="12"><div data-reactid="13"><div class="MenuWrapper" data-reactid="14"><div class="
+            MenuWrapper-sidebar
+            MenuWrapper-closed
+          " data-reactid="15"><a class="MenuWrapper-active" href="/guide/introduction/what-you-get-from-junctions" data-reactid="16">What You Get From Junctions</a><ul class="MenuWrapper-menu" data-reactid="17"><li class="MenuWrapper-heading" data-reactid="18"><a href="/guide" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="19">Tutorial</a></li><li class="MenuWrapper-section" data-reactid="20"><div data-reactid="21">Introduction</div><ul class="MenuWrapper-submenu" data-reactid="22"><li data-reactid="23"><a href="/guide/introduction/do-i-need-a-router" class="MenuWrapper-link  " data-reactid="24">Do I Need A Router?</a></li><li data-reactid="25"><a href="/guide/introduction/motivation" class="MenuWrapper-link  " data-reactid="26">Motivation</a></li><li data-reactid="27"><a href="/guide/introduction/three-principles" class="MenuWrapper-link  " data-reactid="28">The Haiku Of Routing Principles</a></li><li data-reactid="29"><a href="/guide/introduction/what-you-get-from-junctions" class="MenuWrapper-link MenuWrapper-link-active " data-reactid="30">What You Get From Junctions</a></li></ul></li><li class="MenuWrapper-section" data-reactid="31"><div data-reactid="32">Basics</div><ul class="MenuWrapper-submenu" data-reactid="33"><li data-reactid="34"><a href="/guide/basics/locations" class="MenuWrapper-link  " data-reactid="35">Locations</a></li><li data-reactid="36"><a href="/guide/basics/routes" class="MenuWrapper-link  " data-reactid="37">Routes</a></li><li data-reactid="38"><a href="/guide/basics/junctions" class="MenuWrapper-link  " data-reactid="39">Junctions</a></li><li data-reactid="40"><a href="/guide/basics/converting-locations-to-routes" class="MenuWrapper-link  " data-reactid="41">Converting Locations to Routes</a></li><li data-reactid="42"><a href="/guide/basics/the-screen-pattern" class="MenuWrapper-link  " data-reactid="43">The Screen Pattern</a></li><li data-reactid="44"><a href="/guide/basics/links" class="MenuWrapper-link  " data-reactid="45">Links</a></li><li data-reactid="46"><a href="/guide/basics/example-contact-list" class="MenuWrapper-link  " data-reactid="47">Example: Contact List</a></li></ul></li><li class="MenuWrapper-section" data-reactid="48"><div data-reactid="49">Advanced</div><ul class="MenuWrapper-submenu" data-reactid="50"><li data-reactid="51"><a href="/guide/advanced/contextual-links" class="MenuWrapper-link  " data-reactid="52">Pass history via context</a></li><li data-reactid="53"><a href="/guide/advanced/canonical-locations" class="MenuWrapper-link  " data-reactid="54">Canonical Location</a></li></ul></li><li class="MenuWrapper-heading" data-reactid="55"><a href="/guide/Glossary" class="MenuWrapper-link  MenuWrapper-link-primary" data-reactid="56">Glossary</a></li></ul><div class="MenuWrapper-arrows" data-reactid="57"><a class="MenuWrapper-arrows-prev" href="/guide/introduction/three-principles" data-reactid="58">The Haiku Of Routing Principles</a><a class="MenuWrapper-arrows-next" href="/guide/basics/locations" data-reactid="59">Locations</a></div></div><div class="MenuWrapper-body" data-reactid="60"><h1 class="MenuWrapper-title" data-reactid="61">What You Get From Junctions</h1><div class="MarkdownView" data-reactid="62"><div class="
+    CommunicationStateView
+    CommunicationStateView-fresh
+  " data-reactid="63"></div><markdown data-reactid="64"><p>So far, we’ve covered what you get from Junctions in a rather general sense:</p>
+<ul>
+<li>You get the ability to compose components that have routes</li>
+<li>You get integration with HTML5 History</li>
+<li>You get flexibility to use React however you’d like</li>
+</ul>
+<p>But what is it about Junctions that makes all of this possible? To answer this, we’re going to need to dive into the specifics. So let’s change the question a little:</p>
+<p><em>What tools in particular will make your life easier?</em></p>
+<p>This is easier to answer.</p>
+<ol>
+<li>A <code>Route</code> structure that represents routing information</li>
+<li>A <code>Converter</code> that converts URLs into <code>Route</code> objects</li>
+<li>A <code>Junction</code> structure that allows you to configure your <code>Converter</code></li>
+</ol>
+<p>It turns out that these three tools are all you’ll need to write a Junctions app, so let’s go through them in a little more detail!</p>
+<h2 id="routes-aint-locations"><a class="header-anchor" href="#routes-aint-locations" aria-hidden="true">#</a> Routes Ain’t Locations</h2>
+<p>The best way to understand a <code>Route</code> object is to compare it to the <code>Location</code> objects that we first encountered in <a href="/guide/introduction/do-i-need-a-router">Do I Need A Router?</a>. Recall that <a href="/api/junctions/Location">Location</a> objects each hold a single URL and some arbitrary state:</p>
+<pre><code class="language-js"><span class="token punctuation" >{</span>
+  pathname<span class="token punctuation" >:</span> <span class="token string" >'/invoices/12345/payments'</span><span class="token punctuation" >,</span>
+  search<span class="token punctuation" >:</span> <span class="token string" >'?page=2'</span><span class="token punctuation" >,</span>
+  state<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+    arbitrary<span class="token punctuation" >:</span> <span class="token string" >'stuff'</span><span class="token punctuation" >,</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>The problem that we encountered with <code>Location</code> objects is that their structure doesn’t fit with React component trees. Splitting up the <code>pathname</code> and getting the information to the correct component is cumbersome.</p>
+<p><img src="/b8f87f8fdb4c0295e0cfd931310d74ba.png" alt="Flat and nested">
+<em>It is not immediately obvious how to pass a flat Location into a nested tree.</em></p>
+<p>And even if you’re fine with splitting up this information manually, you’ll still face the problem of composability. As the <a href="/guide/introduction/three-principles">Haiku of Routing Principles</a> states, <em>Components Compose</em> – but URLs don’t.</p>
+<p>This is where Routes come in. Routes, like Locations, are a way of representing navigation state. But unlike Locations, <code>Route</code> objects are composable, and structured to match your component tree <em>perfectly</em>.</p>
+<p><img src="/63d8539be1b481ea13cd9ca3831fb00f.png" alt="Routes and Components">
+<em>Nested route data flows naturally through a component tree.</em></p>
+<p>Each <code>Route</code> object has:</p>
+<ul>
+<li>a <code>key</code> specifying the type of route that it represents</li>
+<li>some <code>params</code> that have been extracted from the URL’s path or query string</li>
+<li>one or many <code>next</code> routes, allowing routes to be composed just like components</li>
+</ul>
+<p>For example, the Route in the diagram above would look something like this:</p>
+<pre><code class="language-js"><span class="token punctuation" >{</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'InvoiceList'</span><span class="token punctuation" >,</span>
+    next<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        key<span class="token punctuation" >:</span> <span class="token string" >'Invoice'</span><span class="token punctuation" >,</span>
+        params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> id<span class="token punctuation" >:</span> <span class="token number" >12345</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+        next<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+            key<span class="token punctuation" >:</span> <span class="token string" >'Details'</span><span class="token punctuation" >,</span>
+        <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+<p>But how do you get hold of a <code>Route</code> object? The browser API only understands absolute <code>Location</code> objects, so we’re going to need some way of converting between <code>Location</code> and <code>Route</code>. And that’s what the <code>Converter</code> is for.</p>
+<h2 id="converters-convert"><a class="header-anchor" href="#converters-convert" aria-hidden="true">#</a> Converters Convert</h2>
+<p>Converters convert between <code>Route</code> and <code>Location</code> objects, just as you might expect. But a <code>Location</code> object by itself doesn’t have enough information to generate a <code>Route</code> object – <em>so how does the Converter actually work?</em></p>
+<p>To demonstrate, let’s consider the URL <code>/invoices/add</code>. To create a <code>Route</code>, the Converter will need to choose between a number of possibilities:</p>
+<ul>
+<li>
+<p>Does <code>add</code> represent a page with a form for adding new invoices, or an Invoice with the ID <code>&quot;add&quot;</code>?</p>
+<pre><code class="language-js"><span class="token keyword" >const</span> option1 <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'AddInvoice'</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+
+<span class="token keyword" >const</span> option2 <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'Invoice'</span><span class="token punctuation" >,</span>
+    params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> id<span class="token punctuation" >:</span> <span class="token string" >'add'</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+</li>
+<li>
+<p>Should this URL be represented as a single Route, or as two nested routes?</p>
+<pre><code class="language-js"><span class="token keyword" >const</span> option1 <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'AddInvoice'</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+
+<span class="token keyword" >const</span> option2 <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+    key<span class="token punctuation" >:</span> <span class="token string" >'Invoices'</span><span class="token punctuation" >,</span>
+    next<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        key<span class="token punctuation" >:</span> <span class="token string" >'Add'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+</code></pre>
+</li>
+</ul>
+<p>As you can see, there is a problem: <em>The Converter doesn’t know how to answer these questions.</em></p>
+<p>We’re going to have to <em>tell</em> it the answers. And that is what <code>Junction</code> objects are for!</p>
+<h2 id="junctions-list-possibilities"><a class="header-anchor" href="#junctions-list-possibilities" aria-hidden="true">#</a> Junctions List Possibilities</h2>
+<p>A <code>Junction</code> is an object which defines the <em>possibilities</em> that a <code>Converter</code> needs to consider.</p>
+<p>The best way to understand this is to see it in action. So let’s create a <code>Junction</code> which can answer the questions from the previous section:</p>
+<pre><code class="language-js"><span class="token keyword" >const</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Dashboard<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/dashboard'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    InvoiceList<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<p>If we pass this <code>Junction</code> to a <code>Converter</code>, <strong>we’re indicating that the <code>Converter</code> only needs to consider two possible URLs</strong>. Anything else is unexpected, and the <code>Converter</code> is perfectly within its rights to bail by returning <code>undefined</code> – i.e. 404.</p>
+<p>So now that we have a <code>Junction</code>, let’s answer the questions from the previous section:</p>
+<blockquote>
+<p><strong>Q</strong>: Does <code>add</code> represent a page with a form for adding new invoices, or an Invoice with the ID <code>&quot;add&quot;</code>?<br>
+<em><strong>A</strong>: It represents neither!</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Q</strong>: Should this URL be represented as a single Route, or as two nested routes?<br>
+<em><strong>A</strong>: It is <code>undefined</code>!</em></p>
+</blockquote>
+<p>We probably don’t actually want the <code>Converter</code> to return <code>undefined</code>, so let’s fix the <code>Junction</code>. But how?</p>
+<p>Junction objects, like <code>Route</code> objects, can be nested using the <code>next</code> property. And importantly, the possible paths they specify are <em>relative</em> – not absolute.</p>
+<pre><code class="language-js"><span class="token keyword" >const</span> junction <span class="token operator" >=</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+    Dashboard<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/dashboard'</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    InvoiceList<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        path<span class="token punctuation" >:</span> <span class="token string" >'/invoices'</span><span class="token punctuation" >,</span>
+        next<span class="token punctuation" >:</span> <span class="token function" >createJunction</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+            Invoice<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+                path<span class="token punctuation" >:</span> <span class="token string" >'/:id'</span><span class="token punctuation" >,</span>
+                paramTypes<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+                    id<span class="token punctuation" >:</span> <span class="token punctuation" >{</span> required<span class="token punctuation" >:</span> <span class="token boolean" >true</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+                <span class="token punctuation" >}</span>
+            <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+        <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+</code></pre>
+<p>By specifying a <code>next</code> junction, you’re telling the <code>Converter</code>:</p>
+<p><em>If you find a URL which begins with this <code>path</code>, the <strong>next</strong> part of the path should match the <strong>next</strong> Junction</em>.</p>
+<p>You can even think of this as a kind of equation:</p>
+<p><img src="/bfbc35eea5e663cfe6dd5726eb76a791.png" alt="Decision Tree"></p>
+<p>If the URL starts with one of your branches, you get a <code>Route</code>, the next <code>Junction</code>, and the remainder of the URL. Repeat the process until you either have no remainder URL, no next <code>Junction</code>, or no matching branch. That’s all the <code>Converter</code> does! <em>It’s Math, not Magic.</em></p>
+<p>Speaking of math, when you draw all of your junctions as a tree, you get a pretty thing like this:</p>
+<p><img src="/8ba7f97c02ca2df6a15fbd88f7e2e325.png" alt="Decision Tree">
+<em>Junctions can be represented as a Decision Tree</em></p>
+<p>The great thing about this <em>Junction Diagram</em> is that you can see at a glance what Route any given URL will take. You could even draw it:</p>
+<p><img src="/bd55958691efe2c63307fd7b7d5a3644.png" alt="Decision Tree">
+<em>Routes can be represented as a subset of a Decision Tree.</em></p>
+<p>And with that, you know that Junctions are exactly what the <code>Converter</code> needs to find a <code>Route</code>. After all – they’re exactly what you need, too!</p>
+</markdown></div><div class="MenuWrapper-arrows" data-reactid="65"><a class="MenuWrapper-arrows-prev" href="/guide/introduction/three-principles" data-reactid="66">The Haiku Of Routing Principles</a><a class="MenuWrapper-arrows-next" href="/guide/basics/locations" data-reactid="67">Locations</a></div></div></div></div></div><div class="RootWrapper-footer" data-reactid="68"><!-- react-text: 69 -->Copyright © 2017 <!-- /react-text --><a href="http://www.jamesknelson.com" data-reactid="70">James K Nelson</a></div></div>
+  </div>
+
+  
+    <script type="text/javascript" src="/vendor-69ac9439b09be6398a32.js"></script>
+  
+    <script type="text/javascript" src="/1.docs-introduction-what-you-get-from-junctions-1482f2e28778a84261cb.js"></script>
+  
+    <script type="text/javascript" src="/entry-ac5d4f904bf29d4b6899.js"></script>
+  
+</body>
+</html>
